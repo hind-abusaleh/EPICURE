@@ -19,11 +19,10 @@ export default function PopularDishes() {
       dispatch(setPopularDishes(response));
     }
     fetchFunction();
-    setWidth(carousel.current.scrollWidth - carousel.current.offsetWidth);
+    setWidth(carousel.current.scrollWidth - carousel.current.offsetWidth - 1.5 * carousel.current.clientWidth);
   }, []);
 
   const dishes = useSelector((state: any) => state.popular_dishes.value);
-const max = dishes.length-1;
   return (
     <MainContainer>
       <Text>Signature Dish Of:</Text>
@@ -33,8 +32,8 @@ const max = dishes.length-1;
       >
         <InnerSlider
           drag="x"
-          //dragConstraints={{ right: 0, left: -width }}>
-          dragConstraints={{ right: 0, left: -max*245 }}>
+          dragConstraints={{ right: 0, left: width }}>
+
           {dishes && dishes.map((dish: any, index: number) => (
             <Item key={index}>
               <RestaurantCard res={dish} />

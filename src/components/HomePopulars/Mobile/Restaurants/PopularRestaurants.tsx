@@ -19,11 +19,9 @@ export default function PopularRestaurants() {
       dispatch(setPopularRestaurants(response));
     }
     fetchFunction();
-    setWidth(carousel.current.scrollWidth - carousel.current.offsetWidth);
+    setWidth(carousel.current.scrollWidth - carousel.current.offsetWidth - 1.5 * carousel.current.clientWidth);
   }, []);
-//console.log(carousel.current.scrollWidth);
   const restaurants = useSelector((state: any) => state.popular_restaurants.value);
-  const max = restaurants.length - 1;
   return (
     <MainContainer>
       <Text>popular restaurant in epicure:</Text>
@@ -33,9 +31,8 @@ export default function PopularRestaurants() {
       >
         <InnerSlider
           drag="x"
-          //dragConstraints={{ right: 0, left: -max * 245 }}>
-          dragConstraints={{ right: 0, left: -width }}>
-          
+          dragConstraints={{ right: 0, left: width }}>
+
           {restaurants && restaurants.map((restaurant: any, index: number) => (
             <Item key={index}>
               <RestaurantCard res={restaurant} />

@@ -19,11 +19,10 @@ export default function TopChefDishes() {
       dispatch(setTopChefDishes(response));
     }
     fetchFunction();
-    setWidth(carousel.current.scrollWidth - carousel.current.offsetWidth);
+    setWidth(carousel.current.scrollWidth - carousel.current.offsetWidth - 1.5 * carousel.current.clientWidth);
   }, []);
 
   const topChefDishes = useSelector((state: any) => state.topchef_dishes.value);
-const max = topChefDishes.length-1;
   return (
     <MainContainer>
       <Text>Chef of the week:</Text>
@@ -33,8 +32,7 @@ const max = topChefDishes.length-1;
       >
         <InnerSlider
           drag="x"
-          //dragConstraints={{ right: 0, left: -width }}>
-          dragConstraints={{ right: 0, left: -max*245 }}>
+          dragConstraints={{ right: 0, left: width }}>
           {topChefDishes && topChefDishes.map((dish: any, index: number) => (
             <Item key={index}>
               <RestaurantCard res={dish} />
