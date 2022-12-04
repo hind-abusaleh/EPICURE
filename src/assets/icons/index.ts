@@ -7,6 +7,7 @@ import close_icon from './closeicon.svg';
 import navigate from './navigate.svg';
 import vegan from './vegan.svg';
 import vegetarian from './vegetarian.svg';
+import ils from './ils.svg';
 import spicy from './spicy.svg';
 
 const ICONS = {
@@ -20,6 +21,7 @@ const ICONS = {
    navigate,
    vegan,
    vegetarian,
-   spicy
+   spicy,
+   ils
 }
 export default ICONS;

@@ -1,21 +1,18 @@
-import {POPULAR_RES} from '../assets';
+import {TOPCHEFDISHES} from '../assets';
  
  async function fetchTopChefDishes() {
     return [
         {
-            img: POPULAR_RES.claro,
+            img: TOPCHEFDISHES.onza,
+            name: 'Onza',
+        },
+        {
+            img: TOPCHEFDISHES.red_farm,
+            name: 'Red Farm',
+        },
+        {
+            img: TOPCHEFDISHES.pad_ki_mao,
             name: 'Pad Ki Mao',
-            chef: 'faff',
-        },
-        {
-            img: POPULAR_RES.claro,
-            name: 'Kab Kem',
-            chef: 'Yariv Malili',
-        },
-        {
-            img: POPULAR_RES.claro,
-            name: 'Messa',
-            chef: 'Aviv Moshe',
         },
         
     ]

@@ -9,3 +9,16 @@ export interface RestCard{
     name: string,
     about: string
   }
+
+  export interface DishCard_interface{
+    img: string,
+    name: string,
+    content: string,
+    icon: string,
+    price: number
+  }
+
+  export interface TopChefDishCard_interface{
+    img: string,
+    name: string
+  }

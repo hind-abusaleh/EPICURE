@@ -5,9 +5,13 @@ display: flex;
 flex-direction: column;
 gap:0px;
 `
-export const CardImg = styled.div`
-width:100%
-
+export const CardImg = styled.div<{ im:string }>`
+background-image: url(${(props) => props.im});
+background-repeat: no-repeat;
+background-position: center;
+background-attachment: local;
+width:245px;
+height: 151.8px;
 `
 export const CardInfo = styled.div`
 display: flex;

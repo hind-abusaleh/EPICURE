@@ -8,16 +8,20 @@ import {POPULAR_RES} from '../assets';
             chef: 'Ram Shmueli',
         },
         {
-            img: POPULAR_RES.claro,
+            img: POPULAR_RES.kab_kem,
             name: 'Kab Kem',
             chef: 'Yariv Malili',
         },
         {
-            img: POPULAR_RES.claro,
+            img: POPULAR_RES.messa,
             name: 'Messa',
             chef: 'Aviv Moshe',
         },
-        
+        {
+            img: POPULAR_RES.nithan_thai,
+            name: 'Nitan Thai',
+            chef: 'Shahaf Shabtay',
+        },
     ]
   };
   export default fetchPopularRestaurants;
