@@ -13,7 +13,7 @@ const root = ReactDOM.createRoot(
 root.render(
   <Provider store={store}>
     <React.StrictMode>
-      <GlobalStyels />
+      <GlobalStyels/>
       <App />
     </React.StrictMode>
   </Provider>

@@ -10,7 +10,6 @@ import { ICONS } from '../../../../assets';
 export default function TopChefDishes() {
   const dispatch = useDispatch();
   const [width, setWidth] = useState(0);
-  //const carousel = useRef() as React.MutableRefObject<HTMLInputElement>;
   const carousel = useRef() as React.MutableRefObject<HTMLDivElement>;
   const topChefDishes = useSelector((state: any) => state.topchef_dishes.value);
   const haf_len = topChefDishes.length/2;
@@ -28,7 +27,6 @@ export default function TopChefDishes() {
       <Text>Chef of the week:</Text>
       <Slider className='carousel'
         ref={carousel}
-      //whileTap={{cursor: "grabbing"}}
       >
         <InnerSlider
           drag="x"

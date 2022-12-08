@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from "react-router-dom";
-import { PopupBox, Box, CloseIcon, BurgerContent, FooterContent, Line } from './styles';
-import { ICONS, IMAGES } from '../../../assets';
+import { PopupBox, Box, CloseIcon, BurgerContent, FooterContent } from './styles';
+import { ICONS } from '../../../assets';
 
 const Burger = function (props: { handleClose: any }) {
   return (
@@ -14,7 +14,6 @@ const Burger = function (props: { handleClose: any }) {
           <p><Link to="/restaurants" onClick={props.handleClose} >Restaurants </Link></p>
           <p><Link to="/" onClick={props.handleClose} >Chefs</Link></p>
         </BurgerContent>
-        <Line><img src={IMAGES.burger_line}></img></Line>
         <FooterContent>
           <p><Link to="/" onClick={props.handleClose}>Contact Us</Link></p>
           <p><Link to="/" onClick={props.handleClose}>Term of Use</Link></p>

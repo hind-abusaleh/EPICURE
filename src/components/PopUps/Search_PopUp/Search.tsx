@@ -12,7 +12,7 @@ const Search = function (props: { handleClose: any }) {
         <CloseIcon> <img src={ICONS.close_icon} alt="close" onClick={props.handleClose} /> Search </CloseIcon>
         <SearchBox>
           <img src={ICONS.search} alt="search" />
-          <img src={IMAGES.search_line} alt="line" />
+          <img src={IMAGES.search_line} alt="searchLine" />
           <Input
             type="text" placeholder="Search for restaurant cuisine, chef"
             />

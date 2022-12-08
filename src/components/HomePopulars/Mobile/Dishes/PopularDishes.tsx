@@ -10,7 +10,6 @@ import { ICONS } from '../../../../assets';
 export default function PopularDishes() {
   const dispatch = useDispatch();
   const [width, setWidth] = useState(0);
-  //const carousel = useRef() as React.MutableRefObject<HTMLInputElement>;
   const carousel = useRef() as React.MutableRefObject<HTMLDivElement>;
   const dishes = useSelector((state: any) => state.popular_dishes.value);
   const haf_len =  dishes.length/2 ;
@@ -27,7 +26,6 @@ export default function PopularDishes() {
       <Text>Signature Dish Of:</Text>
       <Slider className='carousel'
         ref={carousel}
-      //whileTap={{cursor: "grabbing"}}
       >
         <InnerSlider
           drag="x"

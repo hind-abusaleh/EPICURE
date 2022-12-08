@@ -10,7 +10,6 @@ import { ICONS } from '../../../../assets';
 export default function PopularRestaurants() {
   const dispatch = useDispatch();
   const [width, setWidth] = useState(0);
-  //const carousel = useRef() as React.MutableRefObject<HTMLInputElement>;
   const carousel = useRef() as React.MutableRefObject<HTMLDivElement>;
   const restaurants = useSelector((state: any) => state.popular_restaurants.value);
   const haf_len =  restaurants.length/2  ;
@@ -28,7 +27,6 @@ export default function PopularRestaurants() {
       <Text>popular restaurant in epicure:</Text>
       <Slider className='carousel'
         ref={carousel}
-      //whileTap={{cursor: "grabbing"}}
       >
         <InnerSlider
           drag="x"

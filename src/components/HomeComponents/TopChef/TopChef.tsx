@@ -1,4 +1,4 @@
-import React, { useEffect, useRef, useState } from 'react';
+import React, { useEffect} from 'react';
 import { MainContainer, About, ChefCard, ChefImage, Text, TextBlock } from './styles';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchTopChefData } from '../../../services/index';

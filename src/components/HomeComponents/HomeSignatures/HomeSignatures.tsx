@@ -2,9 +2,6 @@ import React from 'react';
 import { Main_Container, Icons_Container, Icon, Main_Text } from './styles';
 import {BIG_ICONS} from '../../../assets';
 function HomeSignatures() {
-
-
-
     return (
         <Main_Container>
             <Main_Text>Signature Dish Of:</Main_Text>

@@ -1,9 +1,6 @@
 import React from 'react';
 import { IMAGES, LINES} from '../../../assets';
 import {PopupBox, Box} from './styles'
-//import{Box} from '../Search_PopUp/styles'
-
-
 
 const Bag = function () {
   return (
