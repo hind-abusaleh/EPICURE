@@ -4,13 +4,13 @@ export const Card = styled.div`
 display: flex;
 flex-direction: column;
 gap:0;
+width:15.313rem;
 `
 export const CardImg = styled.div<{ im:string }>`
 background-image: url(${(props) => props.im});
 background-repeat: no-repeat;
 background-position: center;
 background-attachment: local;
-width:15.313rem;
 height: 9.488rem;
 `
 export const CardInfo = styled.div`
@@ -19,7 +19,6 @@ flex-direction: column;
 align-items: flex-start;
 padding: 1rem;
 gap: 0.625rem;
-width: 100%;
 background: #F9F4EA;
 `
 export const ResName = styled.div`

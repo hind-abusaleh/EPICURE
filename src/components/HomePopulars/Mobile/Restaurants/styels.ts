@@ -1,5 +1,4 @@
 import styled from "styled-components";
-import {motion} from 'framer-motion/dist/framer-motion'
 
 export const MainContainer = styled.div`
 display: flex;
@@ -37,16 +36,9 @@ border-style: hidden;
 background-color: white;
 margin: 0 1.25rem 0 0;
 `
-export const Slider = styled(motion.div)`
-cursor: grab;
-overflow: hidden;
+export const Slider = styled.div`
+width : 100%;
 `
-export const InnerSlider = styled(motion.div)`
-display: flex;
-gap: 1.5rem;
-`
-export const Item = styled(motion.div)`
-min-width: 15.313rem;
-min-hight: 14.5rem;
-`
+
+
 
