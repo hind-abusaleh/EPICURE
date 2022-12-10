@@ -26,8 +26,24 @@ export default function PopularRestaurants() {
       <Text>popular restaurant in epicure:</Text>
       <Slider>
         <Swiper
-          spaceBetween={5}
-          slidesPerView={1.4}
+        spaceBetween={24}
+          breakpoints={{
+            // when window width is >= 280px
+            280: {
+              width: 280,
+              slidesPerView: 1,
+            },
+            // when window width is >= 360px
+            360: {
+              width: 360,
+              slidesPerView: 1.4,
+            },
+            // when window width is >= 540px
+            540: {
+              width: 540,
+              slidesPerView: 2,
+            },
+          }}
         >
           {restaurants && restaurants.map((restaurant: any, index: number) => (
             <SwiperSlide key={index}>
