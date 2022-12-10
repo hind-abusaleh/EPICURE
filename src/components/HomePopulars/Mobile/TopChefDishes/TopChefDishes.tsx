@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchTopChefDishes } from '../../../../services';
-import { setTopChefDishes } from './slicer';
+import { setTopChefDishes } from '../../../../slicers/TopChefDishesSlicer';
 import {TopChefDishCard} from '../../../Cards/Mobile';
 import { Slider, MainContainer, Text, Navigate, Button } from '../Restaurants/styels';
 import { Link } from "react-router-dom";

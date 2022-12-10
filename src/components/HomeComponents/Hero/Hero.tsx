@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchPopularRestaurants, fetchCuisines } from '../../../services';
-import { setPopularRestaurants } from '../../HomePopulars/Mobile/Restaurants/slicer';
-import { setCuisines } from "./CuisinesSlicer";
+import { setPopularRestaurants } from '../../../slicers/PopularRestaurantsSlicer';
+import { setCuisines } from "../../../slicers/CuisinesSlicer";
 import { Container, TextBlock, SearchBox, Input,MainContainer} from './styles';
 import { LINES, ICONS } from '../../../assets';
 import { RestCard } from '../../../constants/interfaces';

@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchPopularDishes } from '../../../../services/index';
-import { setPopularDishes } from './slicer';
+import { setPopularDishes } from '../../../../slicers/PopularDishesSlicer';
 import {DishCard} from '../../../Cards/Mobile';
 import { Slider, MainContainer, Text, Navigate, Button } from '../Restaurants/styels';
 import { Link } from "react-router-dom";

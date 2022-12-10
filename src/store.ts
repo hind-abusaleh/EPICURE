@@ -1,10 +1,11 @@
 import { configureStore } from '@reduxjs/toolkit';
-import restaurantsReducer from './components/HomePopulars/Mobile/Restaurants/slicer';
-import dishesReducer from "./components/HomePopulars/Mobile/Dishes/slicer";
-import topChefDishesReducer from "./components/HomePopulars/Mobile/TopChefDishes/slicer";
-import  topChefDataReducer  from "./components/HomeComponents/TopChef/slicer";
-import CuisinesReducer from "./components/HomeComponents/Hero/CuisinesSlicer";
-
+import {
+  restaurantsReducer,
+  dishesReducer,
+  topChefDishesReducer,
+  topChefDataReducer,
+  CuisinesReducer
+} from './slicers';
 
 export default configureStore({
   reducer: {

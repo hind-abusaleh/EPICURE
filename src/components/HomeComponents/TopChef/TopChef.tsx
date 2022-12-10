@@ -2,7 +2,7 @@ import React, { useEffect} from 'react';
 import { MainContainer, About, ChefCard, ChefImage, Text, TextBlock } from './styles';
 import { useDispatch, useSelector } from 'react-redux';
 import { fetchTopChefData } from '../../../services/index';
-import { setTopChefData } from './slicer';
+import { setTopChefData } from '../../../slicers/TopChefSlicer';
 import { ChefData } from '../../../constants/interfaces';
 import TopChefDishes from '../../HomePopulars/Mobile/TopChefDishes/TopChefDishes';
 
