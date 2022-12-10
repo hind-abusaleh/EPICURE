@@ -6,7 +6,7 @@ import { CardInfo, BasicInfo, Name, Price } from './styles';
 import { ICONS } from '../../../../assets';
 
 const DishCard = function(props:{ dish:DishCard_interface})  {
-    let dish = props.dish;
+    const dish = props.dish;
     return (
         <Card>
             <CardImg im={dish.img}> </CardImg>

@@ -3,7 +3,8 @@ import restaurantsReducer from './components/HomePopulars/Mobile/Restaurants/sli
 import dishesReducer from "./components/HomePopulars/Mobile/Dishes/slicer";
 import topChefDishesReducer from "./components/HomePopulars/Mobile/TopChefDishes/slicer";
 import  topChefDataReducer  from "./components/HomeComponents/TopChef/slicer";
-// const serviceApi = createServiceApi('/some/url');
+import CuisinesReducer from "./components/HomeComponents/Hero/CuisinesSlicer";
+
 
 export default configureStore({
   reducer: {
@@ -11,7 +12,7 @@ export default configureStore({
       popular_dishes: dishesReducer,
       topchef_dishes: topChefDishesReducer,
       topchef_data: topChefDataReducer,
+      cuisines: CuisinesReducer,
   },
-  // middleware: getDefaultMiddleware =>
-  // getDefaultMiddleware()
+  
 })

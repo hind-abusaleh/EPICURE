@@ -1,35 +1,46 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchPopularRestaurants } from '../../../services';
+import { fetchPopularRestaurants, fetchCuisines } from '../../../services';
 import { setPopularRestaurants } from '../../HomePopulars/Mobile/Restaurants/slicer';
-import { Container, TextBlock, SearchBox, Input, DataResult, InputContainer,MainContainer,Category,Item } from './styles';
+import { setCuisines } from "./CuisinesSlicer";
+import { Container, TextBlock, SearchBox, Input,MainContainer} from './styles';
 import { LINES, ICONS } from '../../../assets';
 import { RestCard } from '../../../constants/interfaces';
-import { Link } from "react-router-dom";
+import SearchResults from './SearchResults';
 
 function Hero() {
-  const [filteredData, setFilteredData] = useState([]);
+  const [filteredData_restaurants, setFilteredData_restaurants] = useState([]);
+  const [filteredData_cuisines, setFilteredData_cuisines] = useState([]);
   const [wordEntered, setWordEntered] = useState("");
   const dispatch = useDispatch();
-  const data = useSelector((state: any) => state.popular_restaurants.value);
+  const restaurants = useSelector((state: any) => state.popular_restaurants.value);
+  const cuisines = useSelector((state: any) => state.cuisines.value);
+
   useEffect(() => {
     async function fetchFunction() {
-      const response = await fetchPopularRestaurants();
-      dispatch(setPopularRestaurants(response));
+      const response1 = await fetchPopularRestaurants();
+      const response2 = await fetchCuisines();
+      dispatch(setPopularRestaurants(response1));
+      dispatch(setCuisines(response2));
     }
     fetchFunction();
   }, []);
   const handleFilter = (event: any) => {
     const searchWord = event.target.value;
     setWordEntered(searchWord);
-    const newFilter = data.filter((value: RestCard) => {
+    const newFilter__restaurants = restaurants.filter((value: RestCard) => {
+      return value.name.toLowerCase().includes(searchWord.toLowerCase());
+    });
+    const newFilter_cuisines = cuisines.filter((value: RestCard) => {
       return value.name.toLowerCase().includes(searchWord.toLowerCase());
     });
 
     if (searchWord === "") {
-      setFilteredData([]);
+      setFilteredData_restaurants([]);
+      setFilteredData_cuisines([]);
     } else {
-      setFilteredData(newFilter);
+      setFilteredData_restaurants(newFilter__restaurants);
+      setFilteredData_cuisines(newFilter_cuisines);
     }
   };
 
@@ -47,20 +58,10 @@ function Hero() {
               /></SearchBox>
           </TextBlock>
           </Container>
-          <InputContainer>
-          {filteredData.length != 0 && (
-              <DataResult>
-                <Category> Restaurants: </Category>
-               {filteredData.map((value: RestCard, key: any) => {
-                  return (
-                    <Item key={key}>
-                       <Link to="/restaurants">{value.name} </Link>
-                      </Item>
-                  );
-                })}
-              </DataResult>
-            )}
-            </InputContainer>
+          <SearchResults
+           rests ={filteredData_restaurants}
+           cuisines ={filteredData_cuisines}
+          />
     </MainContainer>
   );
 }
