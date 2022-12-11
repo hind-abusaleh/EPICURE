@@ -1,21 +1,21 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 
-export const topChefDataSlice = createSlice({
-  name: 'topchef_data',
+export const dishesSlice = createSlice({
+  name: 'dishes',
 
   initialState: {
-    value: {}
+    value: []
   },
   
   reducers: {
-    setTopChefData: (state, action) => {
+    setDishes: (state, action) => {
       state.value = action.payload;
     },
   },
 })
 
 // Action creators are generated for each case reducer function
-export const { setTopChefData } = topChefDataSlice.actions
+export const { setDishes } = dishesSlice.actions
 
-export default topChefDataSlice.reducer
+export default dishesSlice.reducer
 

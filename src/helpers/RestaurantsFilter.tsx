@@ -1,4 +1,4 @@
-import React from 'react';
+
 import { RestCard } from "../constants/interfaces";
 
 export default function RestaurantsFilter(restaurants:RestCard[], filter:string){

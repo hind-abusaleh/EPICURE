@@ -1,21 +1,23 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchPopularDishes } from '../../../../services/index';
-import { setPopularDishes } from '../../../../slicers/PopularDishesSlicer';
+import { fetchDishes } from '../../../../services/index';
+import { setDishes } from '../../../../slicers/DishesSlicer';
 import {DishCard} from '../../../Cards/Mobile';
 import { Slider, MainContainer, Text, Navigate, Button } from '../Restaurants/styels';
 import { Link } from "react-router-dom";
 import { ICONS } from '../../../../assets';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import 'swiper/swiper.min.css'
+import 'swiper/swiper.min.css';
+import  DishesFilter  from "../../../../helpers/DishesFilter";
 
 export default function PopularDishes() {
   const dispatch = useDispatch();
-  const dishes = useSelector((state: any) => state.popular_dishes.value);
+  const dishes = useSelector((state: any) => state.dishes.value);
+  const FilterdList = DishesFilter(dishes,"popular");
   useEffect(() => {
     async function fetchFunction() {
-      const response = await fetchPopularDishes();
-      dispatch(setPopularDishes(response));
+      const response = await fetchDishes();
+      dispatch(setDishes(response));
     }
     fetchFunction();
      }, []);
@@ -43,7 +45,7 @@ export default function PopularDishes() {
             },
           }}
         >
-          {dishes && dishes.map((dish: any, index: number) => (
+          {FilterdList && FilterdList.map((dish: any, index: number) => (
             <SwiperSlide key={index}>
               <DishCard dish={dish} page={"home"}/>
             </SwiperSlide>
