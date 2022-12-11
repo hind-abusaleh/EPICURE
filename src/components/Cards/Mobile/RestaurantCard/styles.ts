@@ -1,17 +1,18 @@
 import styled from "styled-components";
 
-export const Card = styled.div`
+export const Card = styled.div<{ page:string }>`
 display: flex;
 flex-direction: column;
 gap:0;
-width:15.313rem;
+width: ${props => props.page === "home" ? "15.313rem" : "20.875rem"}
 `
-export const CardImg = styled.div<{ im:string }>`
+export const CardImg = styled.div<{ im:string, page:string  }>`
 background-image: url(${(props) => props.im});
 background-repeat: no-repeat;
 background-position: center;
 background-attachment: local;
-height: 9.488rem;
+/*height: 9.488rem;*/
+height: ${props => props.page === "home" ? "9.488rem" : "12.938rem"}
 `
 export const CardInfo = styled.div`
 display: flex;

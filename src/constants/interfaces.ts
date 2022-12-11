@@ -1,7 +1,11 @@
 export interface RestCard{
     img: string,
     name: string,
-    chef: string
+    chef: string,
+    opening_hour : number,
+    closing_hour : number,
+    new: boolean,
+    popular: boolean
   }
     
   export interface ChefData{

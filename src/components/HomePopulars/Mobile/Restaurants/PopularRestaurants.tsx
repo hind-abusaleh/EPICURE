@@ -1,26 +1,28 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchPopularRestaurants } from '../../../../services/index';
-import { setPopularRestaurants } from '../../../../slicers/PopularRestaurantsSlicer';
+import { fetchRestaurants } from '../../../../services';
+import { setRestaurants } from '../../../../slicers/RestaurantsSlicer';
 import { RestaurantCard } from '../../../Cards/Mobile';
 import { Slider, MainContainer, Text, Navigate, Button } from './styels';
 import { Link } from "react-router-dom";
 import { ICONS } from '../../../../assets';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/swiper.min.css'
-
+import { RestCard } from "../../../../constants/interfaces";
+import { RestaurantsFilter } from "../../../../helpers";
 
 export default function PopularRestaurants() {
   const dispatch = useDispatch();
-  const restaurants = useSelector((state: any) => state.popular_restaurants.value);
+  const restaurants = useSelector((state: any) => state.restaurants.value);
+  const FilterdList = RestaurantsFilter(restaurants,"popular");
   useEffect(() => {
     async function fetchFunction() {
-      const response = await fetchPopularRestaurants();
-      dispatch(setPopularRestaurants(response));
+      const response = await fetchRestaurants();
+      dispatch(setRestaurants(response));
     }
     fetchFunction();
-  }, []);
-
+  }, []); 
+  
   return (
     <MainContainer>
       <Text>popular restaurant in epicure:</Text>
@@ -45,12 +47,11 @@ export default function PopularRestaurants() {
             },
           }}
         >
-          {restaurants && restaurants.map((restaurant: any, index: number) => (
+          {FilterdList && FilterdList.map((res: RestCard, index: number) => (
             <SwiperSlide key={index}>
-              <RestaurantCard res={restaurant} />
+              <RestaurantCard res={res} page={"home"} />
             </SwiperSlide>
           ))}
-
         </Swiper>
       </Slider>
       <Navigate>

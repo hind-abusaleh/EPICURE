@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchPopularRestaurants, fetchCuisines } from '../../../services';
-import { setPopularRestaurants } from '../../../slicers/PopularRestaurantsSlicer';
+import { fetchRestaurants, fetchCuisines } from '../../../services';
+import { setRestaurants } from '../../../slicers/RestaurantsSlicer';
 import { setCuisines } from "../../../slicers/CuisinesSlicer";
 import { Container, TextBlock, SearchBox, Input,MainContainer} from './styles';
 import { LINES, ICONS } from '../../../assets';
@@ -13,14 +13,14 @@ function Hero() {
   const [filteredData_cuisines, setFilteredData_cuisines] = useState([]);
   const [wordEntered, setWordEntered] = useState("");
   const dispatch = useDispatch();
-  const restaurants = useSelector((state: any) => state.popular_restaurants.value);
+  const restaurants = useSelector((state: any) => state.restaurants.value);
   const cuisines = useSelector((state: any) => state.cuisines.value);
 
   useEffect(() => {
     async function fetchFunction() {
-      const response1 = await fetchPopularRestaurants();
+      const response1 = await fetchRestaurants();
       const response2 = await fetchCuisines();
-      dispatch(setPopularRestaurants(response1));
+      dispatch(setRestaurants(response1));
       dispatch(setCuisines(response2));
     }
     fetchFunction();

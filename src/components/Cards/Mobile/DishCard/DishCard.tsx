@@ -5,11 +5,11 @@ import {Card, CardImg} from "../RestaurantCard/styles";
 import { CardInfo, BasicInfo, Name, Price } from './styles';
 import { ICONS } from '../../../../assets';
 
-const DishCard = function(props:{ dish:DishCard_interface})  {
+const DishCard = function(props:{ dish:DishCard_interface , page:string})  {
     const dish = props.dish;
     return (
-        <Card>
-            <CardImg im={dish.img}> </CardImg>
+        <Card page= {props.page}>
+            <CardImg im={dish.img} page= {props.page}> </CardImg>
             <CardInfo>
                 <BasicInfo>
                     <Name>{dish.name}</Name>

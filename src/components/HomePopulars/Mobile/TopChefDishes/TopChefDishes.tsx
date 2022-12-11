@@ -46,7 +46,7 @@ export default function TopChefDishes() {
         >
           {topChefDishes && topChefDishes.map((dish: any, index: number) => (
            <SwiperSlide key={index}>
-              <TopChefDishCard dish={dish} />
+              <TopChefDishCard dish={dish} page={"home"} />
             </SwiperSlide>
           ))}
           </Swiper>

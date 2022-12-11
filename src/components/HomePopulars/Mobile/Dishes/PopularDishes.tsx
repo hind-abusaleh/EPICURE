@@ -45,7 +45,7 @@ export default function PopularDishes() {
         >
           {dishes && dishes.map((dish: any, index: number) => (
             <SwiperSlide key={index}>
-              <DishCard dish={dish} />
+              <DishCard dish={dish} page={"home"}/>
             </SwiperSlide>
           ))}
         </Swiper>

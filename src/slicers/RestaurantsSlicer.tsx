@@ -1,21 +1,21 @@
 import { createAsyncThunk, createSlice } from '@reduxjs/toolkit'
 
 export const restaurantsSlice = createSlice({
-  name: 'popular_restaurants',
+  name: 'restaurants',
 
   initialState: {
     value: []
   },
   
   reducers: {
-    setPopularRestaurants: (state, action) => {
+    setRestaurants: (state, action) => {
       state.value = action.payload;
     },
   },
 })
 
 // Action creators are generated for each case reducer function
-export const { setPopularRestaurants } = restaurantsSlice.actions
+export const { setRestaurants } = restaurantsSlice.actions
 
 export default restaurantsSlice.reducer
 

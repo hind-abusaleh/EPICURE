@@ -4,11 +4,11 @@ import {TopChefDishCard_interface} from '../../../../constants/interfaces';
 import {Card, CardImg} from "../RestaurantCard/styles";
 import {CardInfo} from './styles';
 
-const TopChefDishCard = function(props:{ dish:TopChefDishCard_interface})  {
+const TopChefDishCard = function(props:{ dish:TopChefDishCard_interface,  page:string})  {
     let dish = props.dish;
     return (
-        <Card>
-            <CardImg im={dish.img}></CardImg>
+        <Card page= {props.page}>
+            <CardImg im={dish.img} page= {props.page}></CardImg>
             <CardInfo> {dish.name} </CardInfo>
         </Card>
     );

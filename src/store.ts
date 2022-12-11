@@ -9,7 +9,7 @@ import {
 
 export default configureStore({
   reducer: {
-      popular_restaurants: restaurantsReducer,
+      restaurants: restaurantsReducer,
       popular_dishes: dishesReducer,
       topchef_dishes: topChefDishesReducer,
       topchef_data: topChefDataReducer,

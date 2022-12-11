@@ -4,11 +4,11 @@ import {RestCard} from '../../../../constants/interfaces';
 import {Card, CardImg, CardInfo, ResName, ChefName} from "./styles";
 
 
-const RestaurantCard = function(props:{ res:RestCard})  {
+const RestaurantCard = function(props:{ res:RestCard, page:string})  {
     let res = props.res;
     return (
-        <Card>
-            <CardImg im={res.img}> </CardImg>
+        <Card  page= {props.page}>
+            <CardImg im={res.img} page= {props.page}> </CardImg>
             <CardInfo>
                 <ResName> {res.name} </ResName>
                 <ChefName> {res.chef} </ChefName>
