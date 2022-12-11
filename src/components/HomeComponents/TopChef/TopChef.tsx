@@ -18,7 +18,7 @@ function TopChef() {
     fetchFunction();
    }, []);
   
-  //const chef: Chefs_interface = FilterdList?.at(0);
+  
   return (
     <MainContainer>
       <ChefCard>
