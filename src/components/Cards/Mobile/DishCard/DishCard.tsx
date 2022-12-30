@@ -9,13 +9,13 @@ const DishCard = function(props:{ dish:DishCard_interface , page:string})  {
     const dish = props.dish;
     return (
         <Card page= {props.page}>
-            <CardImg im={dish.img} page= {props.page}> </CardImg>
+            <CardImg im={require(`../../../../${dish.img}`)} page= {props.page}> </CardImg>
             <CardInfo>
                 <BasicInfo>
                     <Name>{dish.name}</Name>
                     {dish.content}
                 </BasicInfo>
-                <img src={dish.icon}/>
+                <img src={require(`../../../../${dish.icon}`)}/>
                 <Price>
                     <img src={ICONS.ils}/>
                     {dish.price}

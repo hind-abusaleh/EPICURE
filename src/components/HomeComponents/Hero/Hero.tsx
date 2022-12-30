@@ -1,6 +1,5 @@
 import React, { useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchRestaurants, fetchCuisines } from '../../../services';
 import { setRestaurants } from '../../../slicers/RestaurantsSlicer';
 import { setCuisines } from "../../../slicers/CuisinesSlicer";
 import { Container, TextBlock, SearchBox, Input,MainContainer} from './styles';
@@ -18,8 +17,8 @@ function Hero() {
 
   useEffect(() => {
     async function fetchFunction() {
-      const response1 = await fetchRestaurants();
-      const response2 = await fetchCuisines();
+      const response1:any = await(await fetch('http://localhost:3001/api/restaurants/getRestaurants')).json();
+      const response2:any = await(await fetch('http://localhost:3001/api/cuisines/getCuisines')).json();
       dispatch(setRestaurants(response1));
       dispatch(setCuisines(response2));
     }

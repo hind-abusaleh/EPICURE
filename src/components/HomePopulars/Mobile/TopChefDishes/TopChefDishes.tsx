@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchDishes } from '../../../../services/index';
 import { setDishes } from '../../../../slicers/DishesSlicer';
 import {TopChefDishCard} from '../../../Cards/Mobile';
 import { Slider, MainContainer, Text, Navigate, Button } from '../Restaurants/styels';
@@ -14,9 +13,10 @@ export default function TopChefDishes() {
   const dispatch = useDispatch();
   const dishes = useSelector((state: any) => state.dishes.value);
   const FilterdList = DishesFilter(dishes,"top_chef");
+  console.log(FilterdList);
   useEffect(() => {
     async function fetchFunction() {
-      const response = await fetchDishes();
+      const response :any = await(await fetch('http://localhost:3001/api/dishes/getDishes')).json();
       dispatch(setDishes(response));
     }
     fetchFunction();

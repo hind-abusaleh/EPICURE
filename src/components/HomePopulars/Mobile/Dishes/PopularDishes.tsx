@@ -1,6 +1,5 @@
 import React, { useEffect } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchDishes } from '../../../../services/index';
 import { setDishes } from '../../../../slicers/DishesSlicer';
 import {DishCard} from '../../../Cards/Mobile';
 import { Slider, MainContainer, Text, Navigate, Button } from '../Restaurants/styels';
@@ -16,7 +15,7 @@ export default function PopularDishes() {
   const FilterdList = DishesFilter(dishes,"popular");
   useEffect(() => {
     async function fetchFunction() {
-      const response = await fetchDishes();
+      const response :any = await(await fetch('http://localhost:3001/api/dishes/getDishes')).json();
       dispatch(setDishes(response));
     }
     fetchFunction();

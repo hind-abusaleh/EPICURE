@@ -1,30 +1,28 @@
 import React, { useEffect} from 'react';
 import { MainContainer, About, ChefCard, ChefImage, Text, TextBlock } from './styles';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchChefs } from '../../../services';
 import { setChefs } from '../../../slicers/ChefsSlicer';
 import TopChefDishes from '../../HomePopulars/Mobile/TopChefDishes/TopChefDishes';
 import {ChefsFilter} from '../../../helpers';
-import { Chefs_interface } from "../../../constants/interfaces";
+
 function TopChef() {
   const dispatch = useDispatch();
   const chefs = useSelector((state: any) => state.chefs.value);
   const FilterdList = ChefsFilter(chefs,"top_chef");
   useEffect(() => {
     async function fetchFunction() {
-      const response = await fetchChefs();
+      const response:any = await(await fetch('http://localhost:3001/api/chefs/getChefs')).json();
       dispatch(setChefs(response));
     }
     fetchFunction();
    }, []);
-  
   
   return (
     <MainContainer>
       <ChefCard>
         <Text>Chef of the week:</Text>
         {FilterdList && FilterdList.map((chef: any, index: number) => (
-        <ChefImage im={chef.img} key={index}>
+        <ChefImage im={require(`../../../${chef.img}`)} key={index}>
           <TextBlock> {chef.name} </TextBlock>
         </ChefImage>
         ))}
