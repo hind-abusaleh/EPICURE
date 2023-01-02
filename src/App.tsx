@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
 import { MainContainer } from './globalStyels';
 import { Footer, Header } from './sections/index'
 import { Home , Restaurants} from './pages/index'
-
+import "react-toastify/dist/ReactToastify.css";
 function App() {
   return (
     <Router>  

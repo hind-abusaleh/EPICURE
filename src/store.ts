@@ -3,15 +3,23 @@ import {
   restaurantsReducer,
   dishesReducer,
   chefsReducer,
-  CuisinesReducer
+  CuisinesReducer,
+  TopChefReducer,
+  TopChefDishesReducer,
+  popularDishesReducer,
+  popularRestaurantsReducer
 } from './slicers';
 
 export default configureStore({
   reducer: {
-      restaurants: restaurantsReducer,
-      dishes: dishesReducer,
-      chefs: chefsReducer,
-      cuisines: CuisinesReducer,
+      restaurants: restaurantsReducer, //home //restaurant
+      dishes: dishesReducer, //home
+      chefs: chefsReducer, //home
+      cuisines: CuisinesReducer, //home
+      topChef: TopChefReducer, //home
+      topChefDishes: TopChefDishesReducer, //home
+      popularDishes: popularDishesReducer, //home
+      popularRestaurants: popularRestaurantsReducer, //home
   },
   
 })

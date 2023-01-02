@@ -33,12 +33,15 @@ justify-content: space-around;
 align-items: flex-start;
 gap: 1.313rem;
 `
-export const BarButton = styled.div`
+export const BarButton = styled.div<{ active:boolean  }>`
     text-decoration: underline;
     text-decoration-color: white;
     text-decoration-thickness: 0.113rem;
     text-underline-offset: 0.375rem;
-&:hover {
+
+    ${({ active }) =>
+    active &&
+    `
     text-decoration-color: #DE9200E5;
-}
+  `}
 `

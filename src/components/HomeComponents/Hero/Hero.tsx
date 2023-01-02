@@ -1,7 +1,5 @@
-import React, { useEffect, useState } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { setRestaurants } from '../../../slicers/RestaurantsSlicer';
-import { setCuisines } from "../../../slicers/CuisinesSlicer";
+import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
 import { Container, TextBlock, SearchBox, Input,MainContainer} from './styles';
 import { LINES, ICONS } from '../../../assets';
 import { RestCard } from '../../../constants/interfaces';
@@ -11,19 +9,9 @@ function Hero() {
   const [filteredData_restaurants, setFilteredData_restaurants] = useState([]);
   const [filteredData_cuisines, setFilteredData_cuisines] = useState([]);
   const [wordEntered, setWordEntered] = useState("");
-  const dispatch = useDispatch();
   const restaurants = useSelector((state: any) => state.restaurants.value);
   const cuisines = useSelector((state: any) => state.cuisines.value);
 
-  useEffect(() => {
-    async function fetchFunction() {
-      const response1:any = await(await fetch('http://localhost:3001/api/restaurants/getRestaurants')).json();
-      const response2:any = await(await fetch('http://localhost:3001/api/cuisines/getCuisines')).json();
-      dispatch(setRestaurants(response1));
-      dispatch(setCuisines(response2));
-    }
-    fetchFunction();
-  }, []);
   const handleFilter = (event: any) => {
     const searchWord = event.target.value;
     setWordEntered(searchWord);

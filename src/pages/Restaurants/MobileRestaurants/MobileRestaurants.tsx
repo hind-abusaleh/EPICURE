@@ -6,15 +6,19 @@ function MobileRestaurants() {
   const ChangeGroup = (g:string) => {
     setGroup(g);
   }
+  const CheckActive = (state: string) => {
+      if(Group === state) return true;
+      else return false;
+  }
     return (
       <MainContainer>
         <ConstContainer>
           <Title>Restaurants</Title>
           <ResBar>
-            <BarButton  onClick={() =>ChangeGroup("all")}>All</BarButton>
-            <BarButton  onClick={() =>ChangeGroup("new")}>New</BarButton>
-            <BarButton  onClick={() =>ChangeGroup("popular")}>Most Popular</BarButton>
-            <BarButton  onClick={() =>ChangeGroup("open_now")}>Open Now</BarButton>
+            <BarButton active={CheckActive("all")}  onClick={() =>ChangeGroup("all")}>All</BarButton>
+            <BarButton active={CheckActive("new")}  onClick={() =>ChangeGroup("new")}>New</BarButton>
+            <BarButton active={CheckActive("popular")}  onClick={() =>ChangeGroup("popular")}>Most Popular</BarButton>
+            <BarButton active={CheckActive("open_now")}  onClick={() =>ChangeGroup("open_now")}>Open Now</BarButton>
           </ResBar>
         </ConstContainer>
         <ShowRestaurants group = {Group}/>

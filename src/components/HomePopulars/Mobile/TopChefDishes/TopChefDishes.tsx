@@ -1,26 +1,14 @@
-import React, { useEffect } from 'react';
-import { useDispatch, useSelector } from 'react-redux';
-import { setDishes } from '../../../../slicers/DishesSlicer';
+import React from 'react';
+import { useSelector } from 'react-redux';
 import {TopChefDishCard} from '../../../Cards/Mobile';
 import { Slider, MainContainer, Text, Navigate, Button } from '../Restaurants/styels';
 import { Link } from "react-router-dom";
 import { ICONS } from '../../../../assets';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/swiper.min.css';
-import  DishesFilter  from "../../../../helpers/DishesFilter";
 
 export default function TopChefDishes() {
-  const dispatch = useDispatch();
-  const dishes = useSelector((state: any) => state.dishes.value);
-  const FilterdList = DishesFilter(dishes,"top_chef");
-  console.log(FilterdList);
-  useEffect(() => {
-    async function fetchFunction() {
-      const response :any = await(await fetch('http://localhost:3001/api/dishes/getDishes')).json();
-      dispatch(setDishes(response));
-    }
-    fetchFunction();
-   }, []);
+  const dishes = useSelector((state: any) => state.topChefDishes.value);
 
   return (
     <MainContainer>
@@ -46,7 +34,7 @@ export default function TopChefDishes() {
             },
           }}
         >
-          {FilterdList && FilterdList.map((dish: any, index: number) => (
+          {dishes && dishes.map((dish: any, index: number) => (
            <SwiperSlide key={index}>
               <TopChefDishCard dish={dish} page={"home"} />
             </SwiperSlide>
