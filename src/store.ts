@@ -7,7 +7,11 @@ import {
   TopChefReducer,
   TopChefDishesReducer,
   popularDishesReducer,
-  popularRestaurantsReducer
+  popularRestaurantsReducer,
+  activeRestaurantReducer,
+  activeRestaurant_breakfastsReducer,
+  activeRestaurant_lanchesReducer,
+  activeRestaurant_dinnersReducer
 } from './slicers';
 
 export default configureStore({
@@ -20,6 +24,10 @@ export default configureStore({
       topChefDishes: TopChefDishesReducer, //home
       popularDishes: popularDishesReducer, //home
       popularRestaurants: popularRestaurantsReducer, //home
+      activeRestaurant: activeRestaurantReducer, //RestaurantCard_ onClick()
+      activeRestaurant_breakfastDishes: activeRestaurant_breakfastsReducer, //RestaurantCard_ onClick()
+      activeRestaurant_lanchDishes : activeRestaurant_lanchesReducer, //RestaurantCard_ onClick()
+      activeRestaurant_dinnerDishes : activeRestaurant_dinnersReducer, //RestaurantCard_ onClick()
   },
   
 })

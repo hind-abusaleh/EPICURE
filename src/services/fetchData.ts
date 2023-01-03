@@ -5,8 +5,19 @@ import { getCuisinesURL,
     getTopChefURL,
     getTopChefDishesURL,
     getPopularDishesURL,
-    getPopularRestaurantsURL}
-     from "./constants/URLs";
+    getPopularRestaurantsURL,
+    getDishesByType_ResName}
+     from "../constants/URLs";
+
+export const fetchRestaurantDishes = async (params: any) => {
+        try {
+            const response = await axios.post( getDishesByType_ResName, params);
+            return response.data; 
+        } catch (error:any){
+            console.log(error);
+        }
+};
+
 
 export const fetchTopChefDishes = async (params: any) => {
     try {

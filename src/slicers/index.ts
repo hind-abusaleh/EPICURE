@@ -6,3 +6,7 @@ export {default as TopChefReducer} from "./TopChefSlicer";
 export {default as TopChefDishesReducer} from "./TopChefDishesSlicer";
 export {default as popularRestaurantsReducer} from "./popularRestaurantsSlicer";
 export {default as popularDishesReducer} from "./popularDishesSlicer";
+export {default as activeRestaurantReducer} from "./activeRestaurantSlicer";
+export {default as activeRestaurant_lanchesReducer} from "./lanchesSlicer";
+export {default as activeRestaurant_dinnersReducer} from "./dinnersSlicer";
+export {default as activeRestaurant_breakfastsReducer} from "./breakfastsSlicer";

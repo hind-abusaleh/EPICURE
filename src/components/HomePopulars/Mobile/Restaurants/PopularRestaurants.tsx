@@ -10,12 +10,12 @@ import { RestCard } from "../../../../constants/interfaces";
 
 export default function PopularRestaurants() {
   const restaurants = useSelector((state: any) => state.popularRestaurants.value);
- 
   return (
     <MainContainer>
       <Text>popular restaurant in epicure:</Text>
       <Slider>
         <Swiper
+        //pagination={{ clickable: true }}
         spaceBetween={24}
           breakpoints={{
             // when window width is >= 280px
@@ -36,7 +36,7 @@ export default function PopularRestaurants() {
           }}
         >
           { restaurants && restaurants.map((res: RestCard, index: number) => (
-            <SwiperSlide key={index}>
+            <SwiperSlide key={index} >
               <RestaurantCard res={res} page={"home"} />
             </SwiperSlide>
           ))}

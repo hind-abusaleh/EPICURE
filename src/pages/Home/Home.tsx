@@ -14,41 +14,40 @@ import { fetchCuisinesData,
     fetchTopChefData,
     fetchTopChefDishes,
     fetchPopularRestaurants,
-    fetchPopularDishes} from '../../fetchData';
-
+    fetchPopularDishes} from '../../services/fetchData';
 
 export default function HomePage() {
   const dispatch = useDispatch();
 
 const fetchHomePageData = useCallback(async ()=>{
   const restaurants = await fetchRestaurantsData();
-    if(restaurants){
-        dispatch(setRestaurants(restaurants));
-    }
-    const cuisines = await fetchCuisinesData();
-    if(cuisines){
-      dispatch(setCuisines(cuisines));
-    }
-
-    const popularDishes = await fetchPopularDishes();
-    if(popularDishes){
-      dispatch(setPopularDishes(popularDishes));
-    }
-
-    const popularRestaurants = await fetchPopularRestaurants();
-    if(popularRestaurants){
-      dispatch(setPopularRestaurants(popularRestaurants));
-    }
-
-    const topChef = await fetchTopChefData();
-    if(topChef){
-      dispatch(setTopChef(topChef));
-    }
-    
-    const topChefDishes = await fetchTopChefDishes(topChef[0].chefsDishes);
-    if(topChefDishes){
-      dispatch(setTopChefDishes(topChefDishes));
-    }
+      if(restaurants){
+          dispatch(setRestaurants(restaurants));
+      }
+      const cuisines = await fetchCuisinesData();
+      if(cuisines){
+        dispatch(setCuisines(cuisines));
+      }
+  
+      const popularDishes = await fetchPopularDishes();
+      if(popularDishes){
+        dispatch(setPopularDishes(popularDishes));
+      }
+  
+      const popularRestaurants = await fetchPopularRestaurants();
+      if(popularRestaurants){
+        dispatch(setPopularRestaurants(popularRestaurants));
+      }
+  
+      const topChef = await fetchTopChefData();
+      if(topChef){
+        dispatch(setTopChef(topChef));
+      }
+      
+      const topChefDishes = await fetchTopChefDishes(topChef[0].chefsDishes);
+      if(topChefDishes){
+        dispatch(setTopChefDishes(topChefDishes));
+      }
 },[])
 
 

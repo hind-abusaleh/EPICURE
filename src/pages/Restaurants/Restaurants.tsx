@@ -1,6 +1,6 @@
 import React, { useCallback, useEffect } from 'react';
 import { useDispatch } from 'react-redux';
-import { fetchRestaurantsData } from '../../fetchData';
+import { fetchRestaurantsData } from '../../services/fetchData';
 import {SetWindowSize} from '../../helpers/index';
 import { setRestaurants } from '../../slicers/RestaurantsSlicer';
 import DesktopRestaurants from './DesktopResturants/DesktopRestaurants';
