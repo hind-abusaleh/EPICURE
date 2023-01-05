@@ -23,7 +23,6 @@ export interface DishCard_interface {
   content: string,
   icon: string,
   price: number,
-  popular: boolean,
-  topchef_dish: boolean,
+  popular: boolean
 }
 

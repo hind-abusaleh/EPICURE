@@ -10,3 +10,4 @@ export {default as activeRestaurantReducer} from "./activeRestaurantSlicer";
 export {default as activeRestaurant_lanchesReducer} from "./lanchesSlicer";
 export {default as activeRestaurant_dinnersReducer} from "./dinnersSlicer";
 export {default as activeRestaurant_breakfastsReducer} from "./breakfastsSlicer";
+export {default as activeDishReducer} from "./activeDishSlicer";

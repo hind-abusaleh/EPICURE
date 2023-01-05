@@ -8,11 +8,5 @@ export default function DishesFilter(dishes:DishCard_interface[], filter:string)
       });
       return FilterdList;
   }
-  else if(filter === "top_chef"){
-    const FilterdList = dishes.filter((value: DishCard_interface) => {
-        return value.topchef_dish === true;
-      });
-      return FilterdList;
-  }
-  if(filter === "all" ){return dishes;}
+  else if(filter === "all" ){return dishes;}
 }

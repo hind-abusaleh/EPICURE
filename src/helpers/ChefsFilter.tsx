@@ -7,12 +7,6 @@ export default function ChefsFilter(chefs :Chefs_interface[], filter:string){
       });
       return FilterdList;
   }
-  else if(filter === "top_chef"){
-    const FilterdList = chefs.filter((value: Chefs_interface) => {
-        return value.top_chef === true;
-      });
-      return FilterdList;
-  }
   else if(filter === "new"){
     const FilterdList = chefs.filter((value: Chefs_interface) => {
         return value.new === true;

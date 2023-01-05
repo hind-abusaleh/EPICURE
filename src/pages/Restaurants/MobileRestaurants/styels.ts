@@ -42,6 +42,7 @@ export const BarButton = styled.div<{ active:boolean  }>`
     ${({ active }) =>
     active &&
     `
+    font-weight: bold;
     text-decoration-color: #DE9200E5;
   `}
 `

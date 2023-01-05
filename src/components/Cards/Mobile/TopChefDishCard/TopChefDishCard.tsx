@@ -3,11 +3,20 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import {DishCard_interface} from '../../../../constants/interfaces';
 import {Card, CardImg} from "../RestaurantCard/styles";
 import {CardInfo} from './styles';
+import { useNavigate} from "react-router-dom";
+import { useDispatch } from 'react-redux';
+import { setActiveDish } from "../../../../slicers/activeDishSlicer";
 
 const TopChefDishCard = function(props:{ dish:DishCard_interface,  page:string})  {
     let dish = props.dish;
+    const navigate = useNavigate();
+    const dispatch = useDispatch();
+    const update = () => {
+        dispatch(setActiveDish(dish));
+        navigate('/DishPage');
+       };
     return (
-        <Card page= {props.page}>
+        <Card page= {props.page} onClick={() => update()}>
             <CardImg im={require(`../../../../${dish.img}`)} page= {props.page}></CardImg>
             <CardInfo> {dish.name} </CardInfo>
         </Card>
