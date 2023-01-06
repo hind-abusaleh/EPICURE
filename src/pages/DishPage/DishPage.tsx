@@ -1,5 +1,5 @@
-import React from 'react';
-import { useSelector } from 'react-redux';
+import React, { useCallback, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import {
     MainContainer,
     DishContainer,
@@ -8,14 +8,27 @@ import {
     DishName,
     Content,
     SideContainer,
-    Titel
+    Titel,
+    Button
 } from "./style";
-import { RadioButton } from "../../components/CustomComponents/index";
-import { CheckBox } from "../../components/CustomComponents/index";
+import { RadioButton, CheckBox, Quantity } from "../../components/CustomComponents/index";
+import { incrementByAmount } from "../../slicers/itemsInBagSlicer";
+import { setQuantity } from "../../slicers/quantityOfDishSlicer";
+import { useNavigate} from "react-router-dom";
+
 export default function DishPage() {
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
     const dish = useSelector((state: any) => state.activeDish.value);
+    const quantity = useSelector((state: any) => state.quantityOfDish.value);
+    const items = useSelector((state: any) => state.itemsInBag.value);
     const SideOptions = ["White bread", "Sticky rice"];
-    const ChangesOptions = ["Whithout peanuts", "Sticky Less spicy"];
+    console.log(items);
+    function update(){
+        dispatch(incrementByAmount(quantity));
+        setQuantity();
+        //navigate('/RestaurantPage');
+    }
     return (
         <MainContainer>
             <DishContainer>
@@ -31,8 +44,13 @@ export default function DishPage() {
             </SideContainer>
             <SideContainer>
                 <Titel>Changes</Titel>
-                <CheckBox options={ChangesOptions}></CheckBox>
+                <CheckBox/>
             </SideContainer>
+            <SideContainer>
+                <Titel>Quantity</Titel>
+                <Quantity/>
+            </SideContainer>
+            <Button onClick={() =>update()}>Add to bag</Button>
         </MainContainer>
     )
 }

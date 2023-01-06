@@ -11,3 +11,7 @@ export {default as activeRestaurant_lanchesReducer} from "./lanchesSlicer";
 export {default as activeRestaurant_dinnersReducer} from "./dinnersSlicer";
 export {default as activeRestaurant_breakfastsReducer} from "./breakfastsSlicer";
 export {default as activeDishReducer} from "./activeDishSlicer";
+export {default as changesOnDishReducer} from "./changesOnDishSlicer";
+export {default as sideOnDishReducer} from "./sideOnDishSlicer";
+export {default as quantityOfDishReducer} from "./quantityOfDishSlicer";
+export {default as itemsInBagReducer} from "./itemsInBagSlicer"

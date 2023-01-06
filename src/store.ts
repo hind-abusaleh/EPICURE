@@ -12,7 +12,11 @@ import {
   activeRestaurant_breakfastsReducer,
   activeRestaurant_lanchesReducer,
   activeRestaurant_dinnersReducer,
-  activeDishReducer
+  activeDishReducer,
+  changesOnDishReducer,
+  sideOnDishReducer,
+  quantityOfDishReducer,
+  itemsInBagReducer
 } from './slicers';
 
 export default configureStore({
@@ -30,6 +34,10 @@ export default configureStore({
       activeRestaurant_lanchDishes : activeRestaurant_lanchesReducer, //RestaurantCard_ onClick()
       activeRestaurant_dinnerDishes : activeRestaurant_dinnersReducer, //RestaurantCard_ onClick()
       activeDish: activeDishReducer, //DishCard_ onClick()
+      changesOnDish: changesOnDishReducer, //ChekBox
+      sideOnDish: sideOnDishReducer,  //RadioButton
+      quantityOfDish: quantityOfDishReducer, //Counters/Quantity
+      itemsInBag: itemsInBagReducer, //DishPage, onclick() 
   },
   
 })

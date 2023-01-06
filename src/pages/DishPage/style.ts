@@ -63,3 +63,23 @@ color: #000000;
 text-decoration: underline;
 text-decoration-color: #DE9200E5;
 `
+export const Button = styled.button`
+width: 12.875rem;
+height: 3rem;
+margin-left: 1.25rem;
+margin-bottom: 3rem;
+margin-top: 2rem;
+padding: 0.875rem, 2.281rem, 0.875rem, 2.281rem;
+border: none;
+background-color: #000000;
+
+font-family: 'Helvetica Neue';
+font-style: normal;
+font-weight: 400;
+font-size: 18px;
+line-height: 20px;
+text-align: center;
+letter-spacing: 2.67px;
+text-transform: uppercase;
+color: #FFFFFF;
+`

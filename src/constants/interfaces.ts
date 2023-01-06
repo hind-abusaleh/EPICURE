@@ -8,6 +8,11 @@ export interface RestCard {
   popular: boolean
 }
 
+export interface ChangesOnDish {
+  Whithout_peanuts: boolean,
+  Sticky_Less_spicy: boolean
+}
+
 export interface Chefs_interface {
   img: string,
   name: string,
