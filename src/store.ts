@@ -16,7 +16,9 @@ import {
   changesOnDishReducer,
   sideOnDishReducer,
   quantityOfDishReducer,
-  itemsInBagReducer
+  itemsInBagReducer,
+  isOpen_bagReducer,
+  ordersReducer,
 } from './slicers';
 
 export default configureStore({
@@ -38,6 +40,8 @@ export default configureStore({
       sideOnDish: sideOnDishReducer,  //RadioButton
       quantityOfDish: quantityOfDishReducer, //Counters/Quantity
       itemsInBag: itemsInBagReducer, //DishPage, onclick() 
+      isOpen_bag: isOpen_bagReducer, //bagPopup, dishPage, Header
+      orders: ordersReducer, //bag_popup
   },
   
 })

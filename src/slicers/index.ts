@@ -14,4 +14,6 @@ export {default as activeDishReducer} from "./activeDishSlicer";
 export {default as changesOnDishReducer} from "./changesOnDishSlicer";
 export {default as sideOnDishReducer} from "./sideOnDishSlicer";
 export {default as quantityOfDishReducer} from "./quantityOfDishSlicer";
-export {default as itemsInBagReducer} from "./itemsInBagSlicer"
+export {default as itemsInBagReducer} from "./itemsInBagSlicer";
+export {default as isOpen_bagReducer} from "./isOpen_bagSlicer";
+export {default as ordersReducer} from "./ordersSlicer";

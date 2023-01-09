@@ -4,27 +4,29 @@ import { Burger, Search, Bag } from '../../../components/PopUps/index'
 import { Link } from "react-router-dom";
 import { Navbar, Button, RightSide, Logo, Burger_Style } from './styles';
 import React from 'react';
+import { SetIsOpen_bag } from "../../../slicers/isOpen_bagSlicer";
+import { useDispatch, useSelector } from 'react-redux';
 
 function MobileHeader() {
+  const dispatch = useDispatch();
+  const isOpen_bag = useSelector((state: any) => state.isOpen_bag.value);
 
   const [isOpen_burger, setIsOpen_burger] = useState(false);
 
   const togglePopup_burger = () => {
-    setIsOpen_bag(false);
+    dispatch(SetIsOpen_bag(false));
     setIsOpen_burger(!isOpen_burger);
   }
 
   const [isOpen_search, setIsOpen_search] = useState(false);
 
   const togglePopup_search = () => {
-    setIsOpen_bag(false);
+    dispatch(SetIsOpen_bag(false));
     setIsOpen_search(!isOpen_search);
   }
   
-  const [isOpen_bag, setIsOpen_bag] = useState(false);
-
   const togglePopup_bag = () => {
-    setIsOpen_bag(!isOpen_bag);
+    dispatch(SetIsOpen_bag(!isOpen_bag));
   }
 
   return (

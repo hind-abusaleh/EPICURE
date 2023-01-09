@@ -1,14 +1,11 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Radio from '@mui/material/Radio';
 import RadioGroup from '@mui/material/RadioGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
 import FormControl from '@mui/material/FormControl';
 import { createTheme, ThemeProvider } from '@mui/material';
-import { useDispatch} from 'react-redux';
-import { setSideOnDish } from "../../../slicers/sideOnDishSlicer";
 
-export default function RadioButton(props:{ options: string[]}) {
-  const dispatch = useDispatch();
+export default function RadioButton(props:{ options: string[], handleChange: any , value:String}) {
   const options = props.options;
   const theme = createTheme({
     typography: {
@@ -17,12 +14,6 @@ export default function RadioButton(props:{ options: string[]}) {
     },
     
   });
-  const [value, setValue] = useState<String>(options[0]);
-
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setValue((event.target as HTMLInputElement).value);
-    dispatch(setSideOnDish(value));
-  };
 
   return (
     <FormControl  sx={{ display: 'flex',
@@ -34,8 +25,8 @@ export default function RadioButton(props:{ options: string[]}) {
           }} >
       <ThemeProvider theme={theme}>
       <RadioGroup
-        value={value}
-        onChange={handleChange}
+        value={props.value}
+        onChange={props.handleChange}
       > {options && options.map((option: string, index: number) => (
         <FormControlLabel key={index} value= {option} control={<Radio color={"warning"}/>} label={option} />
         ))}

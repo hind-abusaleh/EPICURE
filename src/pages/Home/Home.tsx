@@ -53,6 +53,8 @@ const fetchHomePageData = useCallback(async ()=>{
 
 useEffect(() => {
   fetchHomePageData();
+  // 👇️ scroll to top on page load
+  window.scrollTo({top: 0, left: 0, behavior: "auto"});
 }, [fetchHomePageData])
 
 const windowSize = SetWindowSize();

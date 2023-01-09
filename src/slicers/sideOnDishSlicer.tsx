@@ -4,7 +4,7 @@ export const sideOnDishSlice = createSlice({
   name: 'sideOnDish',
 
   initialState: {
-    value: {}
+    value: ""
   },
   
   reducers: {

@@ -8,6 +8,15 @@ export interface RestCard {
   popular: boolean
 }
 
+export interface Order{
+  dish_name: string,
+  changes: ChangesOnDish,
+  side: string,
+  quantity: number,
+  dish_image: string,
+  price: number
+}
+
 export interface ChangesOnDish {
   Whithout_peanuts: boolean,
   Sticky_Less_spicy: boolean

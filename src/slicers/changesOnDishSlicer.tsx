@@ -4,7 +4,10 @@ export const changesOnDishSlice = createSlice({
   name: 'changesOnDish',
 
   initialState: {
-    value: ""
+    value: {
+      Whithout_peanuts: false,
+      Sticky_Less_spicy: false
+    }
   },
   
   reducers: {

@@ -14,9 +14,11 @@ export default function RestaurantsPage() {
           dispatch(setRestaurants(restaurants));
       }
   },[])
-
+  
   useEffect(() => {
     fetchRestaurantPageData();
+    // 👇️ scroll to top on page load
+    window.scrollTo({top: 0, left: 0, behavior: "auto"});
   }, [fetchRestaurantPageData])
 
   const windowSize = SetWindowSize();

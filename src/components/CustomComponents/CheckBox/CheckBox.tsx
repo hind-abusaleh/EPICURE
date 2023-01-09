@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import Checkbox from '@mui/material/Checkbox';
 import FormGroup from '@mui/material/FormGroup';
 import FormControlLabel from '@mui/material/FormControlLabel';
@@ -6,31 +6,16 @@ import FormControl from '@mui/material/FormControl';
 import Box from '@mui/material/Box';
 import { createTheme, ThemeProvider } from '@mui/material';
 import { ChangesOnDish } from "../../../constants/interfaces";
-import { setChangesOnDish } from "../../../slicers/changesOnDishSlicer";
-import { useDispatch} from 'react-redux';
 
-export default function CheckBox() {
-  const dispatch = useDispatch();
+export default function CheckBox(props: { handleChange: any , state:ChangesOnDish }) {
   const theme = createTheme({
     typography: {
       fontSize: 16,
       fontFamily: 'Helvetica Neue',
     },
   });
-  const [state, setState] = useState<ChangesOnDish>({
-    Whithout_peanuts: false,
-    Sticky_Less_spicy: false
-  });
-
-  const handleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
-    setState({
-      ...state,
-      [event.target.name]: event.target.checked,
-    });
-    setChangesOnDish(state);
-  };
-
-  const { Whithout_peanuts, Sticky_Less_spicy } = state;
+  
+  const { Whithout_peanuts, Sticky_Less_spicy } = props.state;
 
   return (
     <ThemeProvider theme={theme}>
@@ -46,12 +31,12 @@ export default function CheckBox() {
           <FormGroup>
             <FormControlLabel
               control={
-                <Checkbox checked={Whithout_peanuts} onChange={handleChange} name="Whithout_peanuts" color={"warning"} />}
+                <Checkbox checked={Whithout_peanuts} onChange={props.handleChange} name="Whithout_peanuts" color={"warning"} />}
               label="Whithout peanuts"
             />
             <FormControlLabel
               control={
-                <Checkbox checked={Sticky_Less_spicy} onChange={handleChange} name="Sticky_Less_spicy" color={"warning"} />
+                <Checkbox checked={Sticky_Less_spicy} onChange={props.handleChange} name="Sticky_Less_spicy" color={"warning"} />
               }
               label="Sticky Less spicy"
             />

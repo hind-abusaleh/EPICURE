@@ -1,5 +1,6 @@
-import React, { useCallback, useEffect } from 'react';
+import React, {useEffect, useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
+import { Link } from "react-router-dom";
 import {
     MainContainer,
     DishContainer,
@@ -13,21 +14,46 @@ import {
 } from "./style";
 import { RadioButton, CheckBox, Quantity } from "../../components/CustomComponents/index";
 import { incrementByAmount } from "../../slicers/itemsInBagSlicer";
-import { setQuantity } from "../../slicers/quantityOfDishSlicer";
-import { useNavigate} from "react-router-dom";
-
+import { Bag } from "../../components/PopUps/index";
+import { ChangesOnDish } from '../../constants/interfaces';
+import { setChangesOnDish } from '../../slicers/changesOnDishSlicer';
+import { setSideOnDish } from '../../slicers/sideOnDishSlicer';
+import { SetIsOpen_bag } from '../../slicers/isOpen_bagSlicer';
 export default function DishPage() {
+    useEffect(() => {
+    // 👇️ scroll to top on page load
+    window.scrollTo({top: 0, left: 0, behavior: 'auto'});
+  }, []);
     const dispatch = useDispatch();
-    const navigate = useNavigate();
     const dish = useSelector((state: any) => state.activeDish.value);
     const quantity = useSelector((state: any) => state.quantityOfDish.value);
-    const items = useSelector((state: any) => state.itemsInBag.value);
     const SideOptions = ["White bread", "Sticky rice"];
-    console.log(items);
+    //const [isOpen_bag, setIsOpen_bag] = useState(false);
+    const isOpen_bag = useSelector((state: any) => state.isOpen_bag.value);
+
+    const [state_checkBox, setState] = useState<ChangesOnDish>({
+        Whithout_peanuts: false,
+        Sticky_Less_spicy: false
+      });
+    
+      const handleChange_checkBox = (event: React.ChangeEvent<HTMLInputElement>) => {
+        setState({
+          ...state_checkBox,
+          [event.target.name]: event.target.checked,
+        });
+      };
+
+      const [value_Radio, setValue] = useState<String>(SideOptions[0]);
+
+      const handleChange_Radio = (event: React.ChangeEvent<HTMLInputElement>) => {
+        setValue((event.target as HTMLInputElement).value);
+      };
+
     function update(){
+        dispatch(setSideOnDish(value_Radio));
+        dispatch(setChangesOnDish(state_checkBox));
         dispatch(incrementByAmount(quantity));
-        setQuantity();
-        //navigate('/RestaurantPage');
+        dispatch(SetIsOpen_bag(!isOpen_bag));
     }
     return (
         <MainContainer>
@@ -40,17 +66,18 @@ export default function DishPage() {
             </DishContainer>
             <SideContainer>
                 <Titel>Choose a side</Titel>
-                <RadioButton options={SideOptions}></RadioButton>
+                <RadioButton options={SideOptions} handleChange={handleChange_Radio} value={value_Radio}></RadioButton>
             </SideContainer>
             <SideContainer>
                 <Titel>Changes</Titel>
-                <CheckBox/>
+                <CheckBox  handleChange={handleChange_checkBox} state={state_checkBox}/>
             </SideContainer>
             <SideContainer>
                 <Titel>Quantity</Titel>
                 <Quantity/>
             </SideContainer>
-            <Button onClick={() =>update()}>Add to bag</Button>
+            <Link to='/Restaurants'><Button onClick={() =>update()} >Add to bag </Button></Link> 
+            {isOpen_bag && <Bag/>}
         </MainContainer>
     )
 }

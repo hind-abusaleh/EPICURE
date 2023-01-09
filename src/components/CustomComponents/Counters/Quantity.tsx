@@ -25,11 +25,12 @@ export default function Quantity() {
         }
     }
     const updateQuantity = useCallback(()=>{
-      setQuantity();
+      dispatch(setQuantity());
     },[])
     useEffect(() => {
       updateQuantity();
     }, [updateQuantity])
+    
     return(
   <Container>
     <Botton disable={value} minus={true} onClick={() =>update(true)}>
