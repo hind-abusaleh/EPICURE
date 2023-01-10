@@ -1,6 +1,6 @@
 import { ICONS } from '../../../assets/index';
 import { useState } from "react";
-import { Burger, Search, Bag } from '../../../components/PopUps/index'
+import { Burger, Search, Bag, Register, SignIn } from '../../../components/PopUps/index'
 import { Link } from "react-router-dom";
 import { Navbar, Button, RightSide, Logo, Burger_Style } from './styles';
 import React from 'react';
@@ -18,13 +18,21 @@ function MobileHeader() {
     setIsOpen_burger(!isOpen_burger);
   }
 
+  const [isOpen_user, setIsOpen_user] = useState(false);
+
+  const togglePopup_user = () => {
+    dispatch(SetIsOpen_bag(false));
+    setIsOpen_user(!isOpen_user);
+  }
+
+
   const [isOpen_search, setIsOpen_search] = useState(false);
 
   const togglePopup_search = () => {
     dispatch(SetIsOpen_bag(false));
     setIsOpen_search(!isOpen_search);
   }
-  
+
   const togglePopup_bag = () => {
     dispatch(SetIsOpen_bag(!isOpen_bag));
   }
@@ -39,8 +47,8 @@ function MobileHeader() {
         />}
 
         <Logo> <Link to='/'>
-            <img src={ICONS.logo} alt="user" />
-          </Link> </Logo>
+          <img src={ICONS.logo} alt="user" />
+        </Link> </Logo>
 
         <RightSide>
           <Button><img src={ICONS.search} alt="search" onClick={togglePopup_search} /></Button>
@@ -48,13 +56,14 @@ function MobileHeader() {
             handleClose={togglePopup_search}
           />}
 
-          <Button  > <Link to='/'>
-            <img src={ICONS.user} alt="user" />
-          </Link></Button>
+          <Button> <img src={ICONS.user} alt="user" onClick={togglePopup_user} /></Button>
+          {isOpen_user && <SignIn
+            handleClose={togglePopup_user}
+          />}
 
 
           <Button><img src={ICONS.bag} alt="bag" onClick={togglePopup_bag} /></Button>
-          {isOpen_bag && <Bag/>}
+          {isOpen_bag && <Bag />}
 
         </RightSide>
 

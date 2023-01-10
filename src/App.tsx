@@ -1,9 +1,10 @@
 import React from 'react';
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
 import { MainContainer } from './globalStyels';
-import { Footer, Header } from './sections/index'
-import { Home , Restaurants, RestaurantPage, DishPage} from './pages/index'
+import { Footer, Header } from './sections/index';
+import { Home , Restaurants, RestaurantPage, DishPage} from './pages/index';
 import "react-toastify/dist/ReactToastify.css";
+import { ToastContainer } from 'react-toastify';
 function App() {
   return (
     <Router>  
@@ -16,6 +17,7 @@ function App() {
         <Route path='/dishpage' element={<DishPage/>}/>
       </Routes>
       <Footer/>
+      <ToastContainer autoClose={false} theme="dark"/>
       </MainContainer>
   </Router>
     
