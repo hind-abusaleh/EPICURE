@@ -3,3 +3,4 @@ export {default as Search} from './Search_PopUp/Search'
 export {default as Bag} from './Bag_PopUp/Bag'
 export {default as Register} from "./Register_PopUp/Register";
 export {default as SignIn} from "./SignIn_PopUp/SignIn";
+export {default as User} from "./User_PopUp/User";

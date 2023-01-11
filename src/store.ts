@@ -19,6 +19,10 @@ import {
   itemsInBagReducer,
   isOpen_bagReducer,
   ordersReducer,
+  user_bagItemsReducer,
+  isThere_Order2AddReducer,
+  activeUserReducer,
+  isLoged_inReducer,
 } from './slicers';
 
 export default configureStore({
@@ -39,9 +43,13 @@ export default configureStore({
       changesOnDish: changesOnDishReducer, //ChekBox
       sideOnDish: sideOnDishReducer,  //RadioButton
       quantityOfDish: quantityOfDishReducer, //Counters/Quantity
-      itemsInBag: itemsInBagReducer, //DishPage, onclick() 
+      itemsInBag: itemsInBagReducer, //DishPage, onclick() //sign in, saved user orders
       isOpen_bag: isOpen_bagReducer, //bagPopup, dishPage, Header
       orders: ordersReducer, //bag_popup
+      user_bagItems: user_bagItemsReducer, //sign in
+      isThere_Order2Add: isThere_Order2AddReducer, //DishPage, onclick() //ordersBag
+      activeUser: activeUserReducer,
+      isLoged_in: isLoged_inReducer,
   },
   
 })

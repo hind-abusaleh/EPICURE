@@ -19,6 +19,8 @@ import { ChangesOnDish } from '../../constants/interfaces';
 import { setChangesOnDish } from '../../slicers/changesOnDishSlicer';
 import { setSideOnDish } from '../../slicers/sideOnDishSlicer';
 import { SetIsOpen_bag } from '../../slicers/isOpen_bagSlicer';
+import { setIsThere_Order2Add } from "../../slicers/isThere_Order2AddSlicer";
+
 export default function DishPage() {
     useEffect(() => {
     // 👇️ scroll to top on page load
@@ -52,6 +54,7 @@ export default function DishPage() {
     function update(){
         dispatch(setSideOnDish(value_Radio));
         dispatch(setChangesOnDish(state_checkBox));
+        dispatch(setIsThere_Order2Add(true));
         dispatch(incrementByAmount(quantity));
         dispatch(SetIsOpen_bag(!isOpen_bag));
     }

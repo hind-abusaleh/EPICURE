@@ -6,8 +6,16 @@ import { CloseIcon } from "../Burger_PopUp/styles";
 import { ICONS, IMAGES } from '../../../assets';
 import { ButtonsContainer, InnerContainer, ForgetPassword, SignUpButton, LogInButton } from "./styles";
 import {Register} from "../index";
+import { getUserByEmailURL, logInURL } from '../../../constants/URLs';
+import { useDispatch } from 'react-redux';
+import { AddOrder } from "../../../slicers/user_bagItemsSlicer";
+import { Order } from '../../../constants/interfaces';
+import { incrementByAmount } from '../../../slicers/itemsInBagSlicer';
+import { setActiveUser } from "../../../slicers/activeUserSlicer";
+import {  setIsLoged_in} from "../../../slicers/isLoged_inSlicer";
 
 const SignIn = function (props: { handleClose: any }) {
+    const dispatch = useDispatch();
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const [unable, setUnable] = useState(true);
@@ -32,12 +40,29 @@ const SignIn = function (props: { handleClose: any }) {
             email,
             password
         };
-        const response = await axios.post("http://localhost:3001/api/auth/login", args);
+        const response = await axios.post(logInURL, args);
         if (response.data.status === "failure") {
             toast.error(response.data.message);
             return;
         }
         toast.success("successful signIn");
+        
+        //fetch+dispatch for the user bag items
+        const user = await axios.post(getUserByEmailURL, {"email":email});
+        //cookie
+        //document.cookie = `${user.data.firstName}`;
+        // update active user
+        dispatch(setActiveUser(user.data));
+        dispatch(setIsLoged_in(true));
+        const orders = user.data.bag_items;
+        if(orders.length !== 0) {
+            console.log("dispatch the bag of user on sign in");
+            dispatch(incrementByAmount(orders.length));
+              orders.forEach((order : Order) => {
+                dispatch(AddOrder(order));
+              });
+        } 
+        //fetch+ dispatch for the history orders
         props.handleClose();
     }
     return (

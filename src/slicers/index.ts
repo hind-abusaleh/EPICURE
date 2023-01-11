@@ -17,3 +17,7 @@ export {default as quantityOfDishReducer} from "./quantityOfDishSlicer";
 export {default as itemsInBagReducer} from "./itemsInBagSlicer";
 export {default as isOpen_bagReducer} from "./isOpen_bagSlicer";
 export {default as ordersReducer} from "./ordersSlicer";
+export {default as user_bagItemsReducer} from "./user_bagItemsSlicer";
+export {default as isThere_Order2AddReducer} from "./isThere_Order2AddSlicer";
+export {default as activeUserReducer} from "./activeUserSlicer";
+export {default as isLoged_inReducer} from "./isLoged_inSlicer";

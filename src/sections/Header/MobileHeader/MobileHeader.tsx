@@ -1,6 +1,6 @@
 import { ICONS } from '../../../assets/index';
 import { useState } from "react";
-import { Burger, Search, Bag, Register, SignIn } from '../../../components/PopUps/index'
+import { Burger, Search, Bag, Register, SignIn, User } from '../../../components/PopUps/index'
 import { Link } from "react-router-dom";
 import { Navbar, Button, RightSide, Logo, Burger_Style } from './styles';
 import React from 'react';
@@ -57,7 +57,7 @@ function MobileHeader() {
           />}
 
           <Button> <img src={ICONS.user} alt="user" onClick={togglePopup_user} /></Button>
-          {isOpen_user && <SignIn
+          {isOpen_user && <User
             handleClose={togglePopup_user}
           />}
 

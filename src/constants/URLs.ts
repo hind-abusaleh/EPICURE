@@ -6,3 +6,6 @@ export const getTopChefDishesURL ="http://localhost:3001/api/dishes/getDishesByI
 export const getPopularRestaurantsURL = "http://localhost:3001/api/restaurants/getPopularRestaurants";
 export const getPopularDishesURL = "http://localhost:3001/api/dishes/getPopularDishes";
 export const getDishesByType_ResName = "http://localhost:3001/api/dishes/getDishesByType_ResName";
+export const logInURL = "http://localhost:3001/api/auth/login";
+export const registerURL = "http://localhost:3001/api/auth/register";
+export const getUserByEmailURL ="http://localhost:3001/api/auth/getuser";

@@ -69,7 +69,7 @@ export default function RestaurantPage() {
             <RestaurantDishes>
                 <DishesBar>
                     <BarButton active={CheckActive("breakfast")} onClick={() => ChangeGroup("breakfast")}>Breakfast</BarButton>
-                    <BarButton active={CheckActive("lanch")} onClick={() => ChangeGroup("lanch")}>Lanch</BarButton>
+                    <BarButton active={CheckActive("lanch")} onClick={() => ChangeGroup("lanch")}>Lunch</BarButton>
                     <BarButton active={CheckActive("dinner")} onClick={() => ChangeGroup("dinner")}>Dinner</BarButton>
                 </DishesBar>
                 <ShowDishes group = {Group}/>

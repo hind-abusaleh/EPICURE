@@ -7,6 +7,7 @@ import { Order } from '../../../constants/interfaces';
 import OrderCard from "../../Cards/Mobile/OrderCard/OrderCar";
 import CalcTotalPrice from "../../../helpers/CalcTotalPrice";
 import { Link } from 'react-router-dom';
+import { setIsThere_Order2Add } from '../../../slicers/isThere_Order2AddSlicer';
 
 
 const OrdersBag = function () {
@@ -15,10 +16,12 @@ const OrdersBag = function () {
   const changes = useSelector((state: any) => state.changesOnDish.value);
   const side = useSelector((state: any) => state.sideOnDish.value);
   const quantityOfDish = useSelector((state: any) => state.quantityOfDish.value);
-  const itemsInBag = useSelector((state: any) => state.itemsInBag.value);
   const orders = useSelector((state: any) => state.orders.value);
+  const needToAdd = useSelector((state: any) => state.isThere_Order2Add.value);
+  const saved_orders = useSelector((state: any) => state.user_bagItems.value);
 
   const order: Order = {
+    dish_id: dish._id,
     dish_name: dish.name,
     changes: changes,
     side: side,
@@ -27,8 +30,10 @@ const OrdersBag = function () {
     price: dish.price
   };
 
+  console.log(document.cookie);
+
   useEffect(() => {
-    if (orders.length < itemsInBag) { dispatch(AddOrder(order)); }
+    if (needToAdd) { dispatch(AddOrder(order)); dispatch(setIsThere_Order2Add(false)); }
   }, [])
 
   const total = CalcTotalPrice(orders);
@@ -38,6 +43,9 @@ const OrdersBag = function () {
       <Titel>My order</Titel>
       <OrdersContainer>
         {orders && orders.map((order: Order, index: number) => (
+          <OrderCard order={order} key={index} />
+        ))}
+         {saved_orders && saved_orders.map((order: Order, index: number) => (
           <OrderCard order={order} key={index} />
         ))}
       </OrdersContainer>

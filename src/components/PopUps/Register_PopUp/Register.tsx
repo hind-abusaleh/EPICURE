@@ -6,6 +6,7 @@ import { PopupBox, Box, SignUpContainer, Titel, Input, Button } from "./styles";
 import { CloseIcon } from "../Burger_PopUp/styles";
 import { ICONS } from '../../../assets';
 import { useNavigate } from 'react-router-dom';
+import { registerURL } from '../../../constants/URLs';
 
 const Register = function (props: { handleClose: any }) {
     const navigate= useNavigate();
@@ -35,13 +36,13 @@ const Register = function (props: { handleClose: any }) {
             toast.error("password don't match");
             return;
         }
-        const response = await axios.post("http://localhost:3001/api/auth/register", args);
+        const response = await axios.post(registerURL, args);
         if (response.data.status === "failure") {
             toast.error(response.data.message);
             return;
         }
         toast.success("successful registration");
-        navigate('/');
+        props.handleClose();
     }
     return (
         <PopupBox>

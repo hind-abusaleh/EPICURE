@@ -5,6 +5,7 @@ import { Footer, Header } from './sections/index';
 import { Home , Restaurants, RestaurantPage, DishPage} from './pages/index';
 import "react-toastify/dist/ReactToastify.css";
 import { ToastContainer } from 'react-toastify';
+
 function App() {
   return (
     <Router>  
