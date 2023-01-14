@@ -26,7 +26,6 @@ const OrdersBag = function () {
   const isOpen_bag = useSelector((state: any) => state.isOpen_bag.value);
   
 
-  console.log(orders);
   
   const order: Order = {
     dish_id: dish._id,

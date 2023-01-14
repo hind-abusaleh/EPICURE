@@ -6,7 +6,8 @@ import { getCuisinesURL,
     getTopChefDishesURL,
     getPopularDishesURL,
     getPopularRestaurantsURL,
-    getDishesByType_ResName}
+    getDishesByType_ResName,
+    getChefsURL}
      from "../constants/URLs";
 
 export const fetchRestaurantDishes = async (params: any) => {
@@ -40,6 +41,21 @@ export const fetchRestaurantsData = async () => {
         console.log(error);
     }
 };
+
+
+export const fetchChefsData = async () => {
+    try {
+        const response = await fetch( getChefsURL
+        ).then((data) =>{
+            return data.json();
+        });
+        return response; 
+    } catch (error:any){
+        console.log(error);
+    }
+};
+
+
 export const fetchDishesData = async () => {
     try {
         const response = await fetch( getDishesURL

@@ -43,7 +43,7 @@ export default function TopChefDishes() {
       </Slider>
       <Navigate>
         <p> All Chefs</p>
-        <Button  > <Link to='/'>
+        <Button  > <Link to='/chefs'>
           <img src={ICONS.navigate} alt="res" />
         </Link></Button>
       </Navigate>

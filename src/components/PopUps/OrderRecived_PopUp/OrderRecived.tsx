@@ -4,9 +4,9 @@ import { useSelector } from 'react-redux';
 import { IMAGES, ICONS, BIG_ICONS } from '../../../assets';
 import { HistoryOrder, Order } from '../../../constants/interfaces';
 import { getHistoryOrdersByID, getLastHistoryOrder, getOrdersByID } from '../../../constants/URLs';
-import { Box, Titel } from '../Bag_PopUp/styles'
-import { Paragraph } from '../CheckOut_PopUp/styles';
-import { MainContainer, InnerContainer, Timer, OrdersContainer, Info, PriceContainer, IconImage, Price } from "./styles";
+import { Box } from '../Bag_PopUp/styles'
+import { MainContainer, InnerContainer, Titel,TimerContainer,
+    Timer, OrdersContainer, Info, PriceContainer, IconImage, Price,Paragraph} from "./styles";
 import CalcTotalPrice from "../../../helpers/CalcTotalPrice";
 
 const OrderRecived = function () {
@@ -40,15 +40,15 @@ const total = CalcTotalPrice(orders as Order[]);
                     <Titel>order recived</Titel>
                     <Paragraph>Your food is in process</Paragraph>
                 </InnerContainer>
-                <Timer>
-                    <Paragraph>Arrive in</Paragraph>
-                    <Paragraph>90:00</Paragraph>
-                    <Paragraph> min</Paragraph>
-                </Timer>
+                <TimerContainer>
+                    Arrive in
+                    <Timer>90:00</Timer>
+                     min
+                </TimerContainer>
                 <OrdersContainer>
                     {orders && orders.map((order: Order, index: number) => (
                         <Info key={index}>
-                            <Paragraph> {order.quantity}x {order.dish_name} </Paragraph>
+                             {order.quantity}x {order.dish_name} 
                             <Price>
                                 <img src={ICONS.ils} />
                                 {order.price}

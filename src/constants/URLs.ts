@@ -1,4 +1,5 @@
 export const getRestaurantsURL = "http://localhost:3001/api/restaurants/getRestaurants";
+export const getChefsURL = "http://localhost:3001/api/chefs/getChefs";
 export const getCuisinesURL = "http://localhost:3001/api/cuisines/getCuisines";
 export const getDishesURL = "http://localhost:3001/api/dishes/getDishes";
 export const getTopChefURL = "http://localhost:3001/api/chefs/getTopChef";

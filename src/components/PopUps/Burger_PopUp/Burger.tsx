@@ -12,7 +12,7 @@ const Burger = function (props: { handleClose: any }) {
         <CloseIcon> <img src={ICONS.close_icon} alt="close" onClick={props.handleClose} /> </CloseIcon>
         <BurgerContent>
           <p><Link to="/restaurants" onClick={props.handleClose} >Restaurants </Link></p>
-          <p><Link to="/" onClick={props.handleClose} >Chefs</Link></p>
+          <p><Link to="/chefs" onClick={props.handleClose} >Chefs</Link></p>
         </BurgerContent>
         <FooterContent>
           <p><Link to="/" onClick={props.handleClose}>Contact Us</Link></p>

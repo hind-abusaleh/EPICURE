@@ -24,6 +24,7 @@ const fetchHomePageData = useCallback(async ()=>{
       if(restaurants){
           dispatch(setRestaurants(restaurants));
       }
+  
       const cuisines = await fetchCuisinesData();
       if(cuisines){
         dispatch(setCuisines(cuisines));
