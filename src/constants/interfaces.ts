@@ -14,18 +14,25 @@ export interface User{
   bag_items: Order[],
   history_orders: HistoryOrder[]
 }
+
 export interface HistoryOrder{
-  order: Order[],
+  orders_id: String[],
   date: Date,
-  TotalPrice: number
+  total_price: number,
+  user_email : string,
+  full_name: string,
+  address: string,
+  phone: string,
 }
+
 export interface Order{
   dish_id: string,
+  //user_email : string,
   dish_name: string,
   changes: ChangesOnDish,
   side: string,
   quantity: number,
-  dish_image: string,
+  dish_img: string,
   price: number
 }
 

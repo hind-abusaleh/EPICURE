@@ -16,10 +16,13 @@ export const itemsInBagSlice = createSlice({
     incrementByAmount: (state, action) => {
       state.value += action.payload
     },
+    reset:(state, action)=>{
+      state.value = action.payload;
+    },
   }
 })
 
 // Action creators are generated for each case reducer function
-export const { increment, decrement, incrementByAmount } = itemsInBagSlice.actions
+export const { increment, decrement, incrementByAmount, reset } = itemsInBagSlice.actions
 
 export default itemsInBagSlice.reducer

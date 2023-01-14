@@ -16,9 +16,13 @@ export const user_bagItemsSlice = createSlice({
     AddOrder: (state, action) => {
         state.value.push(action.payload);
   },
+  removeSavedOrders: (state) => {
+    //state.value = [] as Order[];
+    state.value.length = 0 ;
+},
 }})
 
 // Action creators are generated for each case reducer function
-export const { AddOrder } = user_bagItemsSlice.actions
+export const { AddOrder, removeSavedOrders } = user_bagItemsSlice.actions
 
 export default user_bagItemsSlice.reducer

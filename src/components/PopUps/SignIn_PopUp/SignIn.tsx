@@ -6,7 +6,7 @@ import { CloseIcon } from "../Burger_PopUp/styles";
 import { ICONS, IMAGES } from '../../../assets';
 import { ButtonsContainer, InnerContainer, ForgetPassword, SignUpButton, LogInButton } from "./styles";
 import {Register} from "../index";
-import { getUserByEmailURL, logInURL } from '../../../constants/URLs';
+import { getOrdersByID, getUserByEmailURL, logInURL } from '../../../constants/URLs';
 import { useDispatch } from 'react-redux';
 import { AddOrder } from "../../../slicers/user_bagItemsSlicer";
 import { Order } from '../../../constants/interfaces';
@@ -54,11 +54,11 @@ const SignIn = function (props: { handleClose: any }) {
         // update active user
         dispatch(setActiveUser(user.data));
         dispatch(setIsLoged_in(true));
-        const orders = user.data.bag_items;
-        if(orders.length !== 0) {
-            console.log("dispatch the bag of user on sign in");
-            dispatch(incrementByAmount(orders.length));
-              orders.forEach((order : Order) => {
+        const ordersID = user.data.bag_items;
+        const orders = await axios.post(getOrdersByID, ordersID);
+        if(ordersID.length !== 0) {
+            dispatch(incrementByAmount(ordersID.length));
+              orders.data.forEach((order : Order) => {
                 dispatch(AddOrder(order));
               });
         } 

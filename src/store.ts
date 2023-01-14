@@ -23,6 +23,9 @@ import {
   isThere_Order2AddReducer,
   activeUserReducer,
   isLoged_inReducer,
+  isOpen_userReducer,
+  isOpen_checkoutReducer,
+  isOpen_orderRecivedReducer
 } from './slicers';
 
 export default configureStore({
@@ -50,6 +53,9 @@ export default configureStore({
       isThere_Order2Add: isThere_Order2AddReducer, //DishPage, onclick() //ordersBag
       activeUser: activeUserReducer,
       isLoged_in: isLoged_inReducer,
+      isOpen_user: isOpen_userReducer, //userpopup, orderbag , Header
+      isOpen_checkout: isOpen_checkoutReducer, //checkoutpopup, orderbag , Header
+      isOpen_orderRecived: isOpen_orderRecivedReducer, //checkoutpopup, orderRecived , Header
   },
   
 })

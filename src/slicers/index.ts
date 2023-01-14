@@ -21,3 +21,6 @@ export {default as user_bagItemsReducer} from "./user_bagItemsSlicer";
 export {default as isThere_Order2AddReducer} from "./isThere_Order2AddSlicer";
 export {default as activeUserReducer} from "./activeUserSlicer";
 export {default as isLoged_inReducer} from "./isLoged_inSlicer";
+export {default as isOpen_userReducer} from "./isOpen_userSlicer";
+export {default as isOpen_checkoutReducer} from "./isOpen_checkoutSlicer";
+export {default as isOpen_orderRecivedReducer} from "./isOpen_orderRecivedSlicer";

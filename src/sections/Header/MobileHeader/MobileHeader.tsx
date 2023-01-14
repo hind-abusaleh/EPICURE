@@ -1,28 +1,36 @@
 import { ICONS } from '../../../assets/index';
 import { useState } from "react";
-import { Burger, Search, Bag, Register, SignIn, User } from '../../../components/PopUps/index'
+import { Burger, Search, Bag, User, CheckOut, OrderRecived } from '../../../components/PopUps/index'
 import { Link } from "react-router-dom";
 import { Navbar, Button, RightSide, Logo, Burger_Style } from './styles';
 import React from 'react';
 import { SetIsOpen_bag } from "../../../slicers/isOpen_bagSlicer";
+import { SetIsOpen_user } from "../../../slicers/isOpen_userSlicer";
 import { useDispatch, useSelector } from 'react-redux';
+import { setIsOpen_orderRecived } from "../../../slicers/isOpen_orderRecivedSlicer";
 
 function MobileHeader() {
   const dispatch = useDispatch();
   const isOpen_bag = useSelector((state: any) => state.isOpen_bag.value);
+  const isOpen_user = useSelector((state: any) => state.isOpen_user.value);
+  const isOpen_checkout = useSelector((state: any) => state.isOpen_checkout.value);
+  const isOpen_orderRecived = useSelector((state: any) => state.isOpen_orderRecived.value);
 
   const [isOpen_burger, setIsOpen_burger] = useState(false);
 
   const togglePopup_burger = () => {
     dispatch(SetIsOpen_bag(false));
+    dispatch(setIsOpen_orderRecived(false));
     setIsOpen_burger(!isOpen_burger);
   }
 
-  const [isOpen_user, setIsOpen_user] = useState(false);
+  //const [isOpen_user, setIsOpen_user] = useState(false);
 
   const togglePopup_user = () => {
     dispatch(SetIsOpen_bag(false));
-    setIsOpen_user(!isOpen_user);
+    dispatch(setIsOpen_orderRecived(false));
+    //setIsOpen_user(!isOpen_user);
+    dispatch(SetIsOpen_user(!isOpen_user));
   }
 
 
@@ -30,11 +38,14 @@ function MobileHeader() {
 
   const togglePopup_search = () => {
     dispatch(SetIsOpen_bag(false));
+    dispatch(setIsOpen_orderRecived(false));
     setIsOpen_search(!isOpen_search);
   }
 
   const togglePopup_bag = () => {
     dispatch(SetIsOpen_bag(!isOpen_bag));
+    dispatch(setIsOpen_orderRecived(false));
+
   }
 
   return (
@@ -69,6 +80,12 @@ function MobileHeader() {
 
 
       </Navbar>
+
+      {isOpen_checkout && <CheckOut />}
+
+
+      {isOpen_orderRecived && <OrderRecived/>}
+
 
     </>
 

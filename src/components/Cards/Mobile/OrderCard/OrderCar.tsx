@@ -12,7 +12,7 @@ const OrderCard = function (props: { order: Order }) {
     if(order.changes.Sticky_Less_spicy) Sticky_Less_spicy ="| Sticky Less spicy";
     return (
         <Card>
-            <Image im={require(`../../../../${order.dish_image}`)}/>
+            <Image im={require(`../../../../${order.dish_img}`)}/>
             <Info> 
                 <NameAndQuantity>{order.quantity}x {order.dish_name}</NameAndQuantity>
                 <SideAndChanges>
