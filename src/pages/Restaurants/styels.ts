@@ -25,12 +25,13 @@ color: #000000;
 export const Title = styled.div`
 text-transform: uppercase;
 `
-export const ResBar = styled.div`
+export const ResBar = styled.div<{windowSize:any}>`
 height: 1.375rem;
 display: flex;
 flex-direction: row;
-justify-content: space-around;
-align-items: flex-start;
+justify-content: ${props=>props.windowSize < 769 ? "flex-start;" : "center;"}
+align-items: center;
+align-content: center;
 gap: 1.313rem;
 `
 export const BarButton = styled.div<{ active:boolean  }>`

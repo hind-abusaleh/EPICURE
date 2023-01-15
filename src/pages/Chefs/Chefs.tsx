@@ -37,7 +37,7 @@ if(windowSize <  769) text ="Chefs";
       <MainContainer>
         <ConstContainer>
           <Title>{text}</Title>
-          <ResBar>
+          <ResBar windowSize={windowSize}>
             <BarButton active={CheckActive("all")}  onClick={() =>ChangeGroup("all")}>All</BarButton>
             <BarButton active={CheckActive("new")}  onClick={() =>ChangeGroup("new")}>New</BarButton>
             <BarButton active={CheckActive("most_viewd")}  onClick={() =>ChangeGroup("most_viewd")}>Most Viewd</BarButton>

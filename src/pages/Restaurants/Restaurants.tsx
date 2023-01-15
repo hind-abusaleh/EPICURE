@@ -36,7 +36,7 @@ if(windowSize <  769) text ="Restaurants";
     <MainContainer>
         <ConstContainer>
           <Title>{text}</Title>
-          <ResBar>
+          <ResBar windowSize={windowSize}>
             <BarButton active={CheckActive("all")}  onClick={() =>ChangeGroup("all")}>All</BarButton>
             <BarButton active={CheckActive("new")}  onClick={() =>ChangeGroup("new")}>New</BarButton>
             <BarButton active={CheckActive("popular")}  onClick={() =>ChangeGroup("popular")}>Most Popular</BarButton>
