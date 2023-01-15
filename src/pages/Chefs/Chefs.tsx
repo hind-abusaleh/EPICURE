@@ -1,9 +1,10 @@
 import React, { useCallback, useEffect, useState } from 'react';
-import { MainContainer, ConstContainer, Title, ResBar, BarButton } from "../Restaurants/MobileRestaurants/styels";
+import { MainContainer, ConstContainer, Title, ResBar, BarButton } from "../Restaurants/styels";
 import ShowChefs from "../../components/ChefsPage/ShowChefs";
 import { fetchChefsData } from '../../services/fetchData';
 import { setChefs } from '../../slicers/ChefsSlicer';
 import { useDispatch } from 'react-redux';
+import { SetWindowSize } from '../../helpers';
 
 export default function Chefs() {
     const dispatch = useDispatch();
@@ -29,10 +30,13 @@ export default function Chefs() {
       if(Group === state) return true;
       else return false;
   }
+  const windowSize = SetWindowSize();
+  let text ="";
+if(windowSize <  769) text ="Chefs";
     return (
       <MainContainer>
         <ConstContainer>
-          <Title>Chefs</Title>
+          <Title>{text}</Title>
           <ResBar>
             <BarButton active={CheckActive("all")}  onClick={() =>ChangeGroup("all")}>All</BarButton>
             <BarButton active={CheckActive("new")}  onClick={() =>ChangeGroup("new")}>New</BarButton>

@@ -5,7 +5,7 @@ import { setBreakfasts } from "../../slicers/breakfastsSlicer";
 import { setLanches } from "../../slicers/lanchesSlicer";
 import { setDinners } from "../../slicers/dinnersSlicer";
 import { fetchRestaurantDishes } from '../../services/fetchData';
-import { BarButton } from "../Restaurants/MobileRestaurants/styels";
+import { BarButton } from "../Restaurants/styels";
 import {
     RestaurantDishes,
     OpenContainer,
