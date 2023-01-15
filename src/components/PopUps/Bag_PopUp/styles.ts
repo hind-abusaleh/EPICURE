@@ -5,7 +5,7 @@ export const PopupBox = styled.div`
   z-index: 99 !important;
   background: #00000050;
   width:100%;
-  max-width: 48.063rem;
+  max-width: 31.063rem;
   right: 0;
   top:2.875rem;
 `
@@ -14,7 +14,7 @@ export const Box = styled.div`
   /*border-radius: 0.25rem;*/
   /*padding: 1.25rem;*/
   overflow: visible;
-  min-height: 13.625rem;
+  min-height: 15rem;
   display: flex;
   flex-direction: column;
   justify-content: center;
