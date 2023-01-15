@@ -27,7 +27,7 @@ text-transform: uppercase;
 
 export const Icons_Container = styled.div<{WindowSize:number}>`
 display: flex;
-flex-direction: ${props => props.WindowSize < 769 ? "column" : "row"}
+flex-direction: ${props => props.WindowSize < 769 ? "column;" : "row;"}
 align-items: center;
 padding: 0;
 gap: 3.5rem;

@@ -1,11 +1,12 @@
 import styled from "styled-components";
 
-export const MainContainer = styled.div`
+export const MainContainer = styled.div <{windowSize:any}>`
 margin-top: 2rem;
 display: flex;
-flex-direction: column;
-justify-content: space-between;
-align-items: center;
+flex-direction: ${props=>props.windowSize < 769 ? "column;" : "row;"}
+flex-wrap: wrap;
+justify-content: center;
+align-items: space-between;
 gap: 1.563rem;
 
 `

@@ -1,29 +1,30 @@
 import styled from "styled-components";
 
-export const MainContainer = styled.div`
+export const MainContainer = styled.div<{windowSize:any}>`
 margin-top: 2rem;
 margin-right: 1.25rem;
 display: flex;
-flex-direction: column;
-justify-content: space-between;
-align-items: flex-start;
+flex-direction: ${props=>props.windowSize < 769 ? "column;" : "row;"}
+flex-wrap: ${props=>props.windowSize < 769 ? "nowrap;" : "wrap;"}
+justify-content: center;
+align-items: space-between;
 gap: 1.438rem;
 `
 
-export const ChefCard = styled.div`
-/*height: 21.125rem;*/
-width: 100%;
+export const ChefCard = styled.div<{windowSize:any}>`
 display: flex;
 flex-direction: column;
 justify-content: center;
 align-items: center;
 align-content: center;
+width:${props=>props.windowSize < 769 ? "100%;" : ";"}
 `
 export const TextBlock = styled.div`
 background: rgba(255, 255, 255, 0.8);
 display: block;
 height: 3.188rem;
-width: 100%;
+min-width: 27.063rem !important;
+
 font-family: 'Helvetica Neue';
 font-style: normal;
 font-weight: 400;
@@ -34,7 +35,7 @@ letter-spacing: 0.167rem;
 color: #000000;
 `
 export const Text = styled.div`
-padding-left: 1.25rem;
+/*padding-left: 1.25rem;*/
 font-family: 'Helvetica Neue';
 font-style: normal;
 font-weight: 200;

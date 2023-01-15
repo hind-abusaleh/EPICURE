@@ -1,10 +1,9 @@
-import React, { useCallback, useEffect } from 'react';
+import React, { useCallback, useEffect, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { fetchRestaurantsData } from '../../services/fetchData';
-import {SetWindowSize} from '../../helpers/index';
 import { setRestaurants } from '../../slicers/RestaurantsSlicer';
-import DesktopRestaurants from './DesktopResturants/DesktopRestaurants';
-import  MobileRestaurants  from "./MobileRestaurants/MobileRestaurants";
+import { MainContainer, ConstContainer, Title, ResBar, BarButton } from "./MobileRestaurants/styels";
+import  ShowRestaurants from "../../components/RestaurantsPage/ShowRestaurants";
 
 export default function RestaurantsPage() {
   const dispatch = useDispatch();
@@ -21,16 +20,27 @@ export default function RestaurantsPage() {
     window.scrollTo({top: 0, left: 0, behavior: "auto"});
   }, [fetchRestaurantPageData])
 
-  const windowSize = SetWindowSize();
-
+  const [Group, setGroup] = useState("all");
+  const ChangeGroup = (g:string) => {
+    setGroup(g);
+  }
+  const CheckActive = (state: string) => {
+      if(Group === state) return true;
+      else return false;
+  }
   return (
-    <div>
-      {windowSize < 769 ? 
-          <MobileRestaurants/>
-          :
-          <DesktopRestaurants/>
-      }
-    </div>
+    <MainContainer>
+        <ConstContainer>
+          <Title>Restaurants</Title>
+          <ResBar>
+            <BarButton active={CheckActive("all")}  onClick={() =>ChangeGroup("all")}>All</BarButton>
+            <BarButton active={CheckActive("new")}  onClick={() =>ChangeGroup("new")}>New</BarButton>
+            <BarButton active={CheckActive("popular")}  onClick={() =>ChangeGroup("popular")}>Most Popular</BarButton>
+            <BarButton active={CheckActive("open_now")}  onClick={() =>ChangeGroup("open_now")}>Open Now</BarButton>
+          </ResBar>
+        </ConstContainer>
+        <ShowRestaurants group = {Group}/>
+      </MainContainer>
   )
 }
 
