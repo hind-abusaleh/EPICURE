@@ -1,14 +1,17 @@
+import { MainContainer, Container } from './styles';
 import React from 'react';
+import { Link } from "react-router-dom";
 function DesktopFooter() {
-
-    
-  
     return (
-      <>
-        <h1>desktopFooter</h1>
-      </>
-  
-    );
-  }
-  
-  export default DesktopFooter;
+        <MainContainer>
+            <Container>
+            <Link to="/" >Contact Us</Link>
+            <Link to="/" >Term of Use</Link>
+            <Link to="/" >Privacy Policy</Link>
+        </Container>
+    </MainContainer >
+
+  );
+}
+
+export default DesktopFooter;

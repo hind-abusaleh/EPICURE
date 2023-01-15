@@ -4,15 +4,15 @@ export const PopupBox = styled.div`
   position: absolute;
   z-index: 99 !important;
   background: #00000050;
-  width: 100%;
-  left: 0;
+  width:100%;
+  max-width: 48.063rem;
+  right: 0;
   top:2.875rem;
 `
 export const Box = styled.div`
   background: #fff;
   /*border-radius: 0.25rem;*/
-  padding: 1.25rem;
-  /*border: 0.063rem solid #999;*/
+  /*padding: 1.25rem;*/
   overflow: visible;
   min-height: 13.625rem;
   display: flex;
@@ -51,12 +51,6 @@ export const OrdersContainer = styled.div`
   margin-bottom:9rem;
   `
 export const EndContainer = styled.div`
-  position: absolute;
-  bottom: 0;
-  left:0;
-  padding-left: 5.438rem;
-  padding-bottom: 1.5rem;
-
   display: flex;
   flex-direction: column;
   align-items: center;

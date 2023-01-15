@@ -5,8 +5,9 @@ export const PopupBox = styled.div`
   z-index: 99 !important;
   background: #00000050;
   width: 100%;
+  max-width: 48.063rem;
   top: 0;
-  left: 0;
+  right: 0;
 `
 export const Box = styled.div`
   background: #fff;

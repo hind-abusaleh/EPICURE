@@ -1,9 +1,34 @@
-import styled from "styled-components";
-import {IMAGES} from '../../../assets';
+import styled from "styled-components"; 
+import { IMAGES } from "../../../assets";
 
 export const MainContainer = styled.div`
 `
-
+export const DesktopContainer = styled.div`
+    background-image: url(${IMAGES.hero_desk});
+    background-size: cover;
+    background-repeat: no-repeat;
+    width: 100%;
+    height: 43.5rem;
+    background-position: center;
+    background-attachment: local;
+    
+    border-radius: 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center !important;
+    align-items: center !important;
+`
+export const DesktopTextBlock = styled.div`
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2.25rem 7.875rem;
+    gap: 1.125rem;
+    background: rgba(255, 255, 255, 0.88);
+    width: 53%;                                    
+    height: 32%; 
+`
 export const Container = styled.div`
     background-image: url(${IMAGES.hero});
     background-size: cover;
@@ -44,6 +69,19 @@ height: 1.875rem;
 border: 0.031rem solid #000000;
 border-radius: 0.25rem;
 `
+export const DesktopSearchBox = styled.div`
+box-sizing: border-box;
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 0.375rem 0.75rem;
+gap: 1.125rem;
+width: 95%;
+height: 22%;
+border: 0.031rem solid #000000;
+border-radius: 0.25rem;
+`
+
 export const InputContainer = styled.div`
 border-radius: 0;
 display: flex;

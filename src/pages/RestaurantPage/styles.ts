@@ -73,6 +73,7 @@ export const DishesBar = styled.div`
 height: 1.375rem;
 display: flex;
 flex-direction: row;
+justify-content: space-around;
 align-items: flex-start;
 gap: 1.313rem;
 

@@ -7,7 +7,7 @@ const SearchResults = function (props: { rests: RestCard[], cuisines: RestCard[]
   const rests = props.rests;
   const cuisines = props.cuisines;
   return (
-    <MainContainer>
+    <>
       <InputContainer>
         {rests.length != 0 && (
           <DataResult>
@@ -30,7 +30,7 @@ const SearchResults = function (props: { rests: RestCard[], cuisines: RestCard[]
           </DataResult>
         )}
       </InputContainer>
-    </MainContainer>
+    </>
   );
 }
 export default SearchResults;

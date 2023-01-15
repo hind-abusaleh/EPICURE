@@ -47,7 +47,10 @@ function MobileHeader() {
     dispatch(setIsOpen_orderRecived(false));
 
   }
-
+const closeAll =() =>{
+  dispatch(SetIsOpen_bag(false));
+    dispatch(setIsOpen_orderRecived(false));
+}
   return (
     <>
 
@@ -58,7 +61,7 @@ function MobileHeader() {
         />}
 
         <Logo> <Link to='/'>
-          <img src={ICONS.logo} alt="user" />
+          <img src={ICONS.logo} alt="user" onClick={closeAll}/>
         </Link> </Logo>
 
         <RightSide>

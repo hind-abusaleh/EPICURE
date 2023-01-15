@@ -5,11 +5,16 @@ import { IMAGES, ICONS, BIG_ICONS } from '../../../assets';
 import { HistoryOrder, Order } from '../../../constants/interfaces';
 import { getHistoryOrdersByID, getLastHistoryOrder, getOrdersByID } from '../../../constants/URLs';
 import { Box } from '../Bag_PopUp/styles'
-import { MainContainer, InnerContainer, Titel,TimerContainer,
-    Timer, OrdersContainer, Info, PriceContainer, IconImage, Price,Paragraph} from "./styles";
+import {
+    MainContainer, InnerContainer, Titel
+    , OrdersContainer, Info, PriceContainer, IconImage, Price, Paragraph
+} from "./styles";
 import CalcTotalPrice from "../../../helpers/CalcTotalPrice";
+import CountDown from "./CountDown";
 
 const OrderRecived = function () {
+    
+    const preparationTime_inMins = 55;
     const activeUser = useSelector((state: any) => state.activeUser.value);
     const [history_order, setHistory_order] = useState<HistoryOrder>();
     const [orders, setOrders] = useState<Order[]>();
@@ -25,12 +30,13 @@ const OrderRecived = function () {
         const orders = res3.data;
         setOrders(orders);
     }, [])
+
+    
     useEffect(() => {
         fetch_last_order();
-        // 👇️ scroll to top on page load
-        // window.scrollTo({top: 0, left: 0, behavior: "auto"});
     }, [fetch_last_order])
-const total = CalcTotalPrice(orders as Order[]);
+
+    const total = CalcTotalPrice(orders as Order[]);
     return (
 
         <Box>
@@ -40,15 +46,11 @@ const total = CalcTotalPrice(orders as Order[]);
                     <Titel>order recived</Titel>
                     <Paragraph>Your food is in process</Paragraph>
                 </InnerContainer>
-                <TimerContainer>
-                    Arrive in
-                    <Timer>90:00</Timer>
-                     min
-                </TimerContainer>
+                <CountDown preparationTime_inMins={preparationTime_inMins}/>
                 <OrdersContainer>
                     {orders && orders.map((order: Order, index: number) => (
                         <Info key={index}>
-                             {order.quantity}x {order.dish_name} 
+                            {order.quantity}x {order.dish_name}
                             <Price>
                                 <img src={ICONS.ils} />
                                 {order.price}

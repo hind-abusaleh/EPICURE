@@ -1,7 +1,7 @@
-import React, { useCallback, useEffect } from 'react'
-import {SetWindowSize} from '../../helpers/index'
-import DesktopHome from './DesktopHome/DesktopHome'
-import MobileHome from './MobileHome/MobileHome';
+import React, { useCallback, useEffect } from 'react';
+import { Hero,HomeSignatures,TopChef,AboutUS } from '../../components/HomeComponents';
+import { MainContainer } from './styels';
+import { PopularRestaurants, PopularDishes } from '../../components/HomePopulars/Mobile/index';
 import { setCuisines } from "../../slicers/CuisinesSlicer";
 import { setTopChef } from "../../slicers/TopChefSlicer";
 import { setPopularDishes } from "../../slicers/popularDishesSlicer";
@@ -58,16 +58,16 @@ useEffect(() => {
   window.scrollTo({top: 0, left: 0, behavior: "auto"});
 }, [fetchHomePageData])
 
-const windowSize = SetWindowSize();
 
   return (
-    <div>
-      {windowSize < 769 ? 
-          <MobileHome/>
-          :
-          <DesktopHome/>
-      }
-    </div>
+    <MainContainer>
+      <Hero />
+      <PopularRestaurants />
+      <PopularDishes />
+      <HomeSignatures />
+      <TopChef />
+      <AboutUS/>
+    </MainContainer>
   )
 }
 
