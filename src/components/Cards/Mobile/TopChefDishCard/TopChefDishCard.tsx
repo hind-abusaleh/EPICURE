@@ -6,6 +6,7 @@ import {CardInfo} from './styles';
 import { useNavigate} from "react-router-dom";
 import { useDispatch } from 'react-redux';
 import { setActiveDish } from "../../../../slicers/activeDishSlicer";
+import { SetWindowSize } from '../../../../helpers';
 
 const TopChefDishCard = function(props:{ dish:DishCard_interface,  page:string})  {
     let dish = props.dish;
@@ -15,10 +16,12 @@ const TopChefDishCard = function(props:{ dish:DishCard_interface,  page:string})
         dispatch(setActiveDish(dish));
         navigate('/DishPage');
        };
+       const WindowSize = SetWindowSize();
+
     return (
         <Card page= {props.page} onClick={() => update()}>
             <CardImg im={require(`../../../../${dish.img}`)} page= {props.page}></CardImg>
-            <CardInfo> {dish.name} </CardInfo>
+            <CardInfo WindowSize={WindowSize}> {dish.name} </CardInfo>
         </Card>
     );
 };

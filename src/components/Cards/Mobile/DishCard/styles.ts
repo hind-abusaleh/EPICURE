@@ -1,18 +1,18 @@
 import styled from "styled-components";
 
-export const CardInfo = styled.div`
+export const CardInfo = styled.div<{WindowSize:number}>`
 display: flex;
 flex-direction: column;
-align-items: flex-start;
+align-items: ${props => props.WindowSize < 769 ? "flex-start;" : "center;"}
 padding: 1rem;
 gap: 1rem;
 width: 100%;
 background: #F9F4EA;
 `
-export const BasicInfo = styled.div`
+export const BasicInfo = styled.div<{WindowSize:number}>`
 display: flex;
 flex-direction: column;
-align-items: flex-start;
+text-align: ${props => props.WindowSize < 769 ? "flex-start;" : "center;"}
 gap: 0.5rem;
 width: 100%;
 font-family: 'Helvetica Neue';
@@ -24,11 +24,12 @@ letter-spacing: 0.123rem;
 color: #000000;
 `
 export const Name = styled.div`
-font-weight: 400;
+font-weight: 600; 
 font-size: 1.125rem;
 line-height: 1.313rem;
 letter-spacing: 0.167rem;
 `
+
 export const Price = styled.div`
 display: flex;
 flex-direction: row;

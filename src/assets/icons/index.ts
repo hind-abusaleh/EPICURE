@@ -10,6 +10,7 @@ import vegetarian from './vegetarian.svg';
 import ils from './ils.svg';
 import spicy from './spicy.svg';
 import clock from "./clock.svg";
+import admin from "./admin.svg";
 
 const ICONS = {
 
@@ -24,6 +25,7 @@ const ICONS = {
    vegetarian,
    spicy,
    ils,
-   clock
+   clock,
+   admin
 }
 export default ICONS;

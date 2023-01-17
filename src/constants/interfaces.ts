@@ -5,7 +5,8 @@ export interface RestCard {
   opening_hour: number,
   closing_hour: number,
   new: boolean,
-  popular: boolean
+  popular: boolean,
+  rating: number
 }
 export interface User{
   firstName: string,

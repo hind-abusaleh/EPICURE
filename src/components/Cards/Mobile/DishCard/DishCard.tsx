@@ -7,6 +7,7 @@ import { ICONS } from '../../../../assets';
 import { useNavigate} from "react-router-dom";
 import { useDispatch } from 'react-redux';
 import { setActiveDish } from "../../../../slicers/activeDishSlicer";
+import { SetWindowSize } from '../../../../helpers';
 
 const DishCard = function(props:{ dish:DishCard_interface , page:string})  {
     const dish = props.dish;
@@ -16,13 +17,15 @@ const DishCard = function(props:{ dish:DishCard_interface , page:string})  {
         dispatch(setActiveDish(dish));
         navigate('/DishPage');
        };
+       const WindowSize = SetWindowSize();
+
     return (
         <Card page= {props.page} onClick={() => update() }>
             <CardImg im={require(`../../../../${dish.img}`)} page= {props.page}> </CardImg>
-            <CardInfo>
-                <BasicInfo>
+            <CardInfo WindowSize={WindowSize}>
+                <BasicInfo WindowSize={WindowSize}>
                     <Name>{dish.name}</Name>
-                    {dish.content}
+                   {dish.content}
                 </BasicInfo>
                 <img src={require(`../../../../${dish.icon}`)}/>
                 <Price>
