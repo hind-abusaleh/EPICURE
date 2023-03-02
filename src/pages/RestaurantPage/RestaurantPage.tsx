@@ -18,7 +18,7 @@ import {
     DishesBar
 } from "./styles";
 import { ICONS } from "../../assets/index";
-import { OpenOrClosed } from "../../helpers/index";
+import { OpenOrClosed, SetWindowSize } from "../../helpers/index";
 import ShowDishes from "../../components/RestaurantsPage/ShowDishes";
 
 export default function RestaurantPage() {
@@ -53,21 +53,23 @@ export default function RestaurantPage() {
         if (Group === state) return true;
         else return false;
     }
+    const windowSize = SetWindowSize();
+
     return (
-        <MainContainer>
+        <MainContainer windowSize={windowSize}>
             <ResContainer>
-                <ResImage img={require(`../../${restaurant.img}`)} />
-                <InfoContainer>
-                    <ResName>{restaurant.name}</ResName>
-                    <ChefName>{restaurant.chef}</ChefName>
-                    <OpenContainer>
+                <ResImage img={require(`../../${restaurant.img}`)} windowSize={windowSize} />
+                <InfoContainer windowSize={windowSize}>
+                    <ResName windowSize={windowSize}>{restaurant.name}</ResName>
+                    <ChefName windowSize={windowSize}>{restaurant.chef}</ChefName>
+                    <OpenContainer windowSize={windowSize}>
                         <img src={ICONS.clock} alt="clock" />
                         {OpenOrClosed(restaurant.opening_hour, restaurant.closing_hour)}
                     </OpenContainer>
                 </InfoContainer>
             </ResContainer>
             <RestaurantDishes>
-                <DishesBar>
+                <DishesBar windowSize={windowSize}>
                     <BarButton active={CheckActive("breakfast")} onClick={() => ChangeGroup("breakfast")}>Breakfast</BarButton>
                     <BarButton active={CheckActive("lanch")} onClick={() => ChangeGroup("lanch")}>Lunch</BarButton>
                     <BarButton active={CheckActive("dinner")} onClick={() => ChangeGroup("dinner")}>Dinner</BarButton>

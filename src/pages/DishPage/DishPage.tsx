@@ -20,6 +20,7 @@ import { setChangesOnDish } from '../../slicers/changesOnDishSlicer';
 import { setSideOnDish } from '../../slicers/sideOnDishSlicer';
 import { SetIsOpen_bag } from '../../slicers/isOpen_bagSlicer';
 import { setIsThere_Order2Add } from "../../slicers/isThere_Order2AddSlicer";
+import { SetWindowSize } from '../../helpers';
 
 export default function DishPage() {
     useEffect(() => {
@@ -58,24 +59,26 @@ export default function DishPage() {
         dispatch(incrementByAmount(quantity));
         dispatch(SetIsOpen_bag(!isOpen_bag));
     }
+    const windowSize = SetWindowSize();
+
     return (
-        <MainContainer>
+        <MainContainer windowSize={windowSize}>
             <DishContainer>
-                <DishImage img={require(`../../${dish.img}`)} />
-                <InfoContainer>
-                    <DishName>{dish.name}</DishName>
-                    <Content>{dish.content}</Content>
+                <DishImage img={require(`../../${dish.img}`)} windowSize={windowSize} />
+                <InfoContainer >
+                    <DishName windowSize={windowSize}>{dish.name}</DishName>
+                    <Content windowSize={windowSize}>{dish.content}</Content>
                 </InfoContainer>
             </DishContainer>
-            <SideContainer>
+            <SideContainer windowSize={windowSize}>
                 <Titel>Choose a side</Titel>
                 <RadioButton options={SideOptions} handleChange={handleChange_Radio} value={value_Radio}></RadioButton>
             </SideContainer>
-            <SideContainer>
+            <SideContainer windowSize={windowSize}>
                 <Titel>Changes</Titel>
                 <CheckBox  handleChange={handleChange_checkBox} state={state_checkBox}/>
             </SideContainer>
-            <SideContainer>
+            <SideContainer windowSize={windowSize}>
                 <Titel>Quantity</Titel>
                 <Quantity/>
             </SideContainer>

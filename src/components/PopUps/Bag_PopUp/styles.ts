@@ -1,13 +1,13 @@
 import styled from "styled-components";
 
 export const PopupBox = styled.div`
-  position: absolute;
-  z-index: 99 !important;
-  background: #00000050;
-  width:100%;
-  max-width: 31.063rem;
-  right: 0;
-  top:2.875rem;
+position: absolute;
+z-index: 99 !important;
+background: #00000050;
+width:100%;
+max-width: 31.063rem;
+right: 0;
+top:2.875rem;
 `
 export const Box = styled.div`
   background: #fff;

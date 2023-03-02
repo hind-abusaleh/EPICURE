@@ -95,7 +95,7 @@ const CheckOut = function () {
         const updatedUser = user.data;
         const today = new Date();
         const date = today;
-
+        
         const historyOrder = {
             orders_id: updatedUser.bag_items,
             date: date,
